@@ -30,6 +30,8 @@ public class BounceThread {
         thread.run();
         thread2.run();
 
+        Thread.getAllStackTraces().forEach((p,q)->System.out.println(p.getName() + q.length));
+
 
 
     }
