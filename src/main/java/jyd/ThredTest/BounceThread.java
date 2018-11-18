@@ -27,8 +27,8 @@ public class BounceThread {
         };
         Thread thread = new Thread(r);
         Thread thread2 = new Thread(r);
-        thread.run();
-        thread2.run();
+        thread.start();
+        thread2.start();
 
         Thread.getAllStackTraces().forEach((p,q)->System.out.println(p.getName() + q.length));
 
