@@ -1,8 +1,6 @@
 package nio;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.stream.Stream;
@@ -50,13 +48,27 @@ public class ChannelTest {
             System.out.println("Read " + bytesRead);
             buf.flip();
 
-            while(buf.hasRemaining()){
+            //while(buf.hasRemaining()){
                 System.out.print((char) buf.get());
-            }
+            //}
 
-            buf.clear();
-            bytesRead = inChannel.read(buf);
+            //buf.clear();
+            //bytesRead = inChannel.read(buf);
         }
         aFile.close();
+    }
+
+
+    public static void writeFile() throws IOException {
+        File file = new File("d:\\saas.log");
+        FileOutputStream fos = new FileOutputStream(file);
+        FileChannel fc = fos.getChannel();
+        ByteBuffer bbuf = ByteBuffer.allocate(2048);
+
+        bbuf.put("ss".getBytes());
+        bbuf.flip();
+        fc.write(bbuf);
+        bbuf.clear();
+
     }
 }

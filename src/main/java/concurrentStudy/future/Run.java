@@ -10,10 +10,12 @@ public class Run {
 
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(2,3, 5L, TimeUnit.SECONDS,new LinkedBlockingDeque<>());
 
+        int a = 0;
 
         Future<String> future = poolExecutor.submit(()->{
+
             TimeUnit.SECONDS.sleep(5);
-            return " time = " + System.currentTimeMillis();
+            return " time = " + a + System.currentTimeMillis();
         });
 
         System.out.println(System.currentTimeMillis());
