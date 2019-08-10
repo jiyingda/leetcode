@@ -29,10 +29,12 @@ public class Leet92 {
         ListNode head2 = new ListNode(2);
         ListNode head3 = new ListNode(3);
         ListNode head4 = new ListNode(4);
+        ListNode head5 = new ListNode(5);
+        head4.next = head5;
         head3.next = head4;
         head2.next = head3;
         head1.next = head2;
-        ListNode re = reverseBetween(head1,2 ,4);
+        ListNode re = reverseBetween(head1,1 ,5);
         System.out.println(re);
 
     }
@@ -40,20 +42,42 @@ public class Leet92 {
 
 
     public static ListNode reverseBetween(ListNode head, int m, int n) {
+
         if(head == null){
             return null;
         }
-
-        List<ListNode> list = new ArrayList<>();
-        list.add(new ListNode(head.val));
-        while (head.next != null){
-            head = head.next;
-            list.add(new ListNode(head.val));
+        boolean flag = false;
+        if(m == 1){
+            ListNode tt = new ListNode(0);
+            tt.next = head;
+            head = tt;
+            m++;
+            n++;
+            flag = true;
         }
-        for(){
 
+        ListNode result = head;
+        ListNode re = head;
+        int i = 1;
+        while(head != null && i <= n){
+            if(i < m - 1){
+                head = head.next;
+                re = re.next;
+            } else if(i == m - 1){
+                head = head.next;
+            } else if(i < n){
+                ListNode tmp = head.next;
+                head.next = head.next.next;
+                tmp.next = re.next;
+                re.next = tmp;
+            }
+            i++;
         }
-        return re;
+        if(flag){
+            return result.next;
+        }
+
+        return result;
     }
 
     public static class ListNode {
