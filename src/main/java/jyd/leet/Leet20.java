@@ -1,7 +1,5 @@
 package jyd.leet;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author jiyingda
