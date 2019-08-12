@@ -68,6 +68,7 @@ public class Leet23 {
                     lists[i] = lists[size-1];
                     lists[size-1] = null;
                     size--;
+
                 }
 
             }
