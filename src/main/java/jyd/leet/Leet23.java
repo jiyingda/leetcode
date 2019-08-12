@@ -25,7 +25,7 @@ public class Leet23 {
     public static void main(String[] args){
         ListNode head1 = new ListNode(1);
         ListNode head2 = new ListNode(1);
-        ListNode head3 = new ListNode(0);
+        ListNode head3 = new ListNode(2);
         ListNode head4 = new ListNode(3);
         ListNode head5 = new ListNode(4);
         ListNode head6 = new ListNode(4);
@@ -35,77 +35,79 @@ public class Leet23 {
         head5.next = head7;
         head2.next = head5;
 
-        //head4.next = head6;
-        //head1.next = head4;
+        head4.next = head6;
+        head1.next = head4;
 
-        //head3.next = head8;
+        head3.next = head8;
 
 
-        ListNode[] lists = new ListNode[]{head1, head3};
-        System.out.println(mergeKLists(lists));
+        ListNode[] lists = new ListNode[]{head1, head2, head3};
+        ListNode re = mergeKLists(lists);
+        System.out.println(re);
 
     }
 
 
     public static ListNode mergeKLists(ListNode[] lists) {
-        if(lists == null){
+        if(lists == null || lists.length < 1){
             return null;
         }
-        int size = lists.length;
-        if(size == 0){
-            return null;
-        }
-        if(size == 1){
+        if(lists.length == 1){
             return lists[0];
         }
-        ListNode re = null;
-        ListNode result = null;
+        int size = lists.length;
 
-        while (size > 0){
-            if(lists[0] == null){
-                lists[0] = lists[size-1];
-                lists[size-1] = null;
+        while (size > 1) {
+            int len = size/2;
+            for(int i = 0; i < len; i++){
+                ListNode tmp = mergeTwoLists(lists[i], lists[size - 1]);
+                lists[i] = tmp;
+                lists[size - 1] = null;
                 size--;
-            }
-            if(size == 1){
-                if(re == null){
-                    re = lists[0];
-                } else {
-                    re.next = lists[0];
-                }
-
-                break;
-            }
-            int n = 0;
-            int v = lists[0].val;
-
-            for(int i = 1; i < size; i++){
-                if(lists[i] == null){
-                    lists[i] = lists[size-1];
-                    lists[size-1] = null;
-                    size--;
-                }
-                if(v > lists[i].val){
-                    n = i;
-                    v = lists[i].val;
-                }
-            }
-            lists[n] = lists[n].next;
-            if(lists[n] == null){
-                lists[n] = lists[size - 1];
-                size--;
-            }
-            if(re == null){
-                re = new ListNode(v);
-                result = re;
-            } else {
-                re.next = new ListNode(v);
-                re = re.next;
             }
         }
-        return result;
 
 
+        return lists[0];
+
+
+    }
+
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(l1 == null){
+            return l2;
+        }
+        if(l2 == null){
+            return l1;
+        }
+        if(l1.val <= l2.val){
+
+        } else {
+            ListNode temp = l2;
+            l2 = l1;
+            l1 = temp;
+        }
+        ListNode re = l1;
+        while (l2 != null){
+
+            while (l1.next != null && l1.next.val <= l2.val){
+                l1 = l1.next;
+            }
+            ListNode temp = l1.next;
+            l1.next = l2;
+            if(temp == null){
+                break;
+            }
+            while (l2.next != null && l2.next.val <= temp.val){
+                l2 = l2.next;
+            }
+            l1 = l2;
+            l2 = l2.next;
+            l1.next = temp;
+            l1 = l1.next;
+        }
+
+        return re;
     }
 
 
