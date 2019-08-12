@@ -62,46 +62,16 @@ public class Leet23 {
         ListNode result = null;
 
         while (size > 0){
-            if(lists[0] == null){
-                lists[0] = lists[size-1];
-                lists[size-1] = null;
-                size--;
-            }
-            if(size == 1){
-                if(re == null){
-                    re = lists[0];
-                } else {
-                    re.next = lists[0];
-                }
 
-                break;
-            }
-            int n = 0;
-            int v = lists[0].val;
-
-            for(int i = 1; i < size; i++){
-                if(lists[i] == null){
+            for(int i = 0; i < size; i++){
+                while (lists[i] == null){
                     lists[i] = lists[size-1];
                     lists[size-1] = null;
                     size--;
                 }
-                if(v > lists[i].val){
-                    n = i;
-                    v = lists[i].val;
-                }
+
             }
-            lists[n] = lists[n].next;
-            if(lists[n] == null){
-                lists[n] = lists[size - 1];
-                size--;
-            }
-            if(re == null){
-                re = new ListNode(v);
-                result = re;
-            } else {
-                re.next = new ListNode(v);
-                re = re.next;
-            }
+
         }
         return result;
 
