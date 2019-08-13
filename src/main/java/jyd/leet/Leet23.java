@@ -48,36 +48,63 @@ public class Leet23 {
 
 
     public static ListNode mergeKLists(ListNode[] lists) {
-        if(lists == null){
+        if(lists == null || lists.length < 1){
             return null;
         }
-        int size = lists.length;
-        if(size == 0){
-            return null;
-        }
-        if(size == 1){
+        if(lists.length == 1){
             return lists[0];
         }
-        ListNode re = null;
-        ListNode result = null;
+        int size = lists.length;
 
-        while (size > 0){
-
-            for(int i = 0; i < size; i++){
-                while (lists[i] == null){
-                    lists[i] = lists[size-1];
-                    lists[size-1] = null;
-                    size--;
-
-                }
-
+        while (size > 1) {
+            int len = size/2;
+            for(int i = 0; i < len; i++){
+                ListNode tmp = mergeTwoLists(lists[i], lists[size - 1]);
+                lists[i] = tmp;
+                lists[size - 1] = null;
+                size--;
             }
-
         }
-        return result;
 
 
+        return lists[0];
+    }
 
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(l1 == null){
+            return l2;
+        }
+        if(l2 == null){
+            return l1;
+        }
+        if(l1.val <= l2.val){
+
+        } else {
+            ListNode temp = l2;
+            l2 = l1;
+            l1 = temp;
+        }
+        ListNode re = l1;
+        while (l2 != null){
+
+            while (l1.next != null && l1.next.val <= l2.val){
+                l1 = l1.next;
+            }
+            ListNode temp = l1.next;
+            l1.next = l2;
+            if(temp == null){
+                break;
+            }
+            while (l2.next != null && l2.next.val <= temp.val){
+                l2 = l2.next;
+            }
+            l1 = l2;
+            l2 = l2.next;
+            l1.next = temp;
+            l1 = l1.next;
+        }
+
+        return re;
     }
 
 
