@@ -2,24 +2,116 @@ package jyd.leet;
 
 import java.io.UnsupportedEncodingException;
 
+/**
+ * 罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。
+ *
+ * 字符          数值
+ * I             1
+ * V             5
+ * X             10
+ * L             50
+ * C             100
+ * D             500
+ * M             1000
+ * 例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。
+ *
+ * 通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：
+ *
+ * I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+ * X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 
+ * C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
+ * 给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。
+ *
+ * 示例 1:
+ *
+ * 输入: 3
+ * 输出: "III"
+ * 示例 2:
+ *
+ * 输入: 4
+ * 输出: "IV"
+ * 示例 3:
+ *
+ * 输入: 9
+ * 输出: "IX"
+ * 示例 4:
+ *
+ * 输入: 58
+ * 输出: "LVIII"
+ * 解释: L = 50, V = 5, III = 3.
+ * 示例 5:
+ *
+ * 输入: 1994
+ * 输出: "MCMXCIV"
+ * 解释: M = 1000, CM = 900, XC = 90, IV = 4.
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/integer-to-roman
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
 public class leet12 {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        String aName = "http://fpriv.17doubao.com/test/policyContract/png/2018%E5%B9%B408%E6%9C%8825/%E8%AF%AD%E9%9F%B3_20180825024332480.png?Expires=1535265812&OSSAccessKeyId=obTuyP8GflR8U3nO&Signature=WjeWtttfRtA/Ioh1r2cPXQyFyY4%3D";
-        //String newName=new String(aName.getBytes(),"GBK");
-
-        int index = aName.indexOf("?");
-        String fileName = aName.substring(0, index);
-        fileName = fileName.substring(fileName.lastIndexOf("/")+1);
-        //System.out.println("newName ==== " + newName);
-        //fileName = aName.substring(aName.lastIndexOf("/")+1, index);
-        System.out.println(fileName);
+        System.out.println(intToRoman(1994));;
     }
 
 
-    public static int romanToInt(String s) {
-        char[] ss = s.toCharArray();
+    public static String intToRoman(int num) {
+        String re = "";
+        while (num >= 1000){
+            re = re + "M";
+            num -= 1000;
+        }
+        if (num >= 900){
+            re = re + "CM";
+            num -= 900;
+        }
+        if(num >= 500){
+            re = re + "D";
+            num -= 500;
+        }
+        if(num >= 400){
+            re = re + "CD";
+            num -= 400;
+        }
 
-        return 0;
+        while (num >= 100){
+            re = re + "C";
+            num -= 100;
+        }
+        if(num >= 90){
+            re = re + "XC";
+            num -= 90;
+        }
+        if(num >= 50){
+            re = re + "L";
+            num -= 50;
+        }
+        if(num >= 40){
+            re= re + "XL";
+            num -= 40;
+        }
+        while (num >= 10){
+            re = re + "X";
+            num -= 10;
+        }
+        if(num >= 9){
+            re = re + "IX";
+            num -= 9;
+        }
+        if(num >= 5){
+            re = re + "V";
+            num  -= 5;
+        }
+        if(num >= 4){
+            re = re + "IV";
+            num -= 4;
+        }
+        while (num >= 1){
+            re = re + "I";
+            num--;
+        }
+
+        return re;
     }
 }
