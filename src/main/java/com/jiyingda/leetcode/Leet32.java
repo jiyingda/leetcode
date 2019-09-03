@@ -30,71 +30,20 @@ public class Leet32 {
         System.out.println(longestValidParentheses("()()()"));;
     }
 
-    static class Count{
-        int a;
-        int b;
-
-        public Count(int a, int b) {
-            this.a = a;
-            this.b = b;
-        }
-    }
 
     public static int longestValidParentheses(String s) {
-        List<Count> reList = new ArrayList<>();
-        char[] array = s.toCharArray();
-        int len = s.length();
-        reList.add(new Count(0,-2));
-        int i =1;
-        while (i < len){
-            char a = array[i-1];
-            char b = array[i];
-            if(check(a, b)){
-                int p = i-1;
-                int q = i;
-                boolean flag;
-
-                do {
-                    Count cc = doo(p, q, array, len);
-
-                    Count tt = reList.get(reList.size() - 1);
-                    if (tt.b + 1 == cc.a) {
-                        tt.b = cc.b;
-                        flag = true;
-                        p = tt.a;
-                        q = tt.b;
-                    }else if(tt.b == cc.b){
-                        flag = false;
-                    }else {
-                        flag = false;
-                        reList.add(cc);
-                    }
-                }while (flag);
-
-
-                i = q;
+        int maxans = 0;
+        int dp[] = new int[s.length()];
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == ')') {
+                if (s.charAt(i - 1) == '(') {
+                    dp[i] = (i >= 2 ? dp[i - 2] : 0) + 2;
+                } else if (i - dp[i - 1] > 0 && s.charAt(i - dp[i - 1] - 1) == '(') {
+                    dp[i] = dp[i - 1] + ((i - dp[i - 1]) >= 2 ? dp[i - dp[i - 1] - 2] : 0) + 2;
+                }
+                maxans = Math.max(maxans, dp[i]);
             }
-            i++;
         }
-
-
-
-        return 0;
-    }
-
-
-
-
-    public static Count doo(int p, int j, char[] array, int len){
-        while (p >=0 && j < len && check(array[p], array[j])){
-            j++;
-            p--;
-        }
-        return new Count(p+1,j-1);
-    }
-
-
-    public static boolean check(char a, char b){
-        return a == '(' && b == ')';
+        return maxans;
     }
 }
