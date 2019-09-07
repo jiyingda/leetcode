@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet7 {
+public class Leet7 {
     public static void main(String... args){
         System.out.println(reverse(10));
 

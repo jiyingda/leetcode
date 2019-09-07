@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet6 {
+public class Leet6 {
     public static void main(String... args){
         System.out.println(convert("PAHNAPLSIIGYIR", 4));
         System.out.println("PAHNAPLSIIGYIR");

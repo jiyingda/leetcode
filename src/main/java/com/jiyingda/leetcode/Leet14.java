@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet14 {
+public class Leet14 {
     public static String longestCommonPrefix(String[] strs) {
         if(strs == null){
             return "";

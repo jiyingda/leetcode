@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet8 {
+public class Leet8 {
     public static void  main(String[] args){
         System.out.println(myAtoi("-91283472332"));
     }

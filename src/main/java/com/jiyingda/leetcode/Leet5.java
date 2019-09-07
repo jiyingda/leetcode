@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet5 {
+public class Leet5 {
 
     public static void main(String... args){
         String rrrr = longestPalindrome("ccd");

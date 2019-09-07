@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet4 {
+public class Leet4 {
 
     public static void main(String[] args){
         int[] nums1 = {1,3};

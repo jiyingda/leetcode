@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet3 {
+public class Leet3 {
     public static void main(String... args){
 
         System.out.println(lengthOfLongestSubstring("sbcsafgr"));

@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet11 {
+public class Leet11 {
 
     public static void main(String... args){
         int[] he = {1,8,6,2,5,4,8,3,7};

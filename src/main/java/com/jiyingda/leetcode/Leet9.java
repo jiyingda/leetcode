@@ -1,6 +1,6 @@
 package com.jiyingda.leetcode;
 
-public class leet9 {
+public class Leet9 {
 
     public static void main(String[] args){
         System.out.println(isPalindrome(122));;

@@ -3,7 +3,7 @@ package com.jiyingda.leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class leet10 {
+public class Leet10 {
     public static void main(String[] args){
         System.out.println(numJewelsInStones("aA", "aAAbbbb"));;
     }
