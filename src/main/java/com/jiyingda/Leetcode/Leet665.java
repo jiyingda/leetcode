@@ -1,4 +1,4 @@
-package com.jiyingda.Leetcode;
+package com.jiyingda.leetcode;
 
 /**
  * @author jiyingda
