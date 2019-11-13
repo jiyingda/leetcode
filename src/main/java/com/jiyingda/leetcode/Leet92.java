@@ -1,5 +1,6 @@
 package com.jiyingda.leetcode;
 
+import com.jiyingda.entity.ListNode;
 /**
  * @author jiyingda.
  * @date 2019/7/30.
@@ -75,11 +76,5 @@ public class Leet92 {
         }
 
         return result;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
     }
 }

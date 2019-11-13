@@ -1,4 +1,5 @@
 package com.jiyingda.leetcode;
+import com.jiyingda.entity.ListNode;
 
 /**
  * @author jiyingda.
@@ -41,10 +42,4 @@ public class Leet206 {
         }
         return re;
     }
-
-     public static class ListNode {
-          int val;
-          ListNode next;
-          ListNode(int x) { val = x; }
-      }
 }
