@@ -65,7 +65,7 @@ public class RBTree<T extends Comparable<T>> {
      * @return
      */
     public T addNode(T value) {
-        printTree(root);
+        printTree(root.getLeft());
         System.out.println("\n----------------");
         RBTreeNode<T> t = new RBTreeNode<T>(value);
         return addNode(t);

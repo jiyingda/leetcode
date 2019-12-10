@@ -1,5 +1,7 @@
 package com.jiyingda.leetcode;
 
+import com.jiyingda.entity.ListNode;
+
 /**
  * @author jiyingda
  * @date 2019/8/15
