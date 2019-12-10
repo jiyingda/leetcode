@@ -64,6 +64,9 @@ public class RBTreeNode<T extends Comparable<T>> {
     }
     @Override
     public String toString(){
-        return value.toString();
+        if(value != null){
+            return value.toString();
+        }
+        return "root";
     }
 }

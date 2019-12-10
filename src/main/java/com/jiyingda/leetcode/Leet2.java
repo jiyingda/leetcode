@@ -1,5 +1,7 @@
 package com.jiyingda.leetcode;
 
+import com.jiyingda.entity.ListNode;
+
 public class Leet2 {
     public static void main(String... args){
         ListNode l1 = new ListNode(2);
@@ -37,9 +39,3 @@ public class Leet2 {
     }
 
 }
-
-class ListNode {
-     int val;
-    ListNode next;
-     ListNode(int x) { val = x; }
- }
