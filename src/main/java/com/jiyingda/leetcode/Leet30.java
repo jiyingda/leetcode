@@ -66,15 +66,17 @@ public class Leet30 {
 
             }
         }
+        Map<String, Integer> maps = new HashMap<>(map.size());
 
         for(int i = 0; i < s.length(); i++){
             if(i + l > s.length()){
                 break;
             }
             String str = s.substring(i, i+ l);
-            if(isT(str, a, map)){
+            if(isT(str, a, map, maps)){
                 relist.add(i);
             }
+            maps.clear();
         }
 
 
@@ -83,9 +85,9 @@ public class Leet30 {
     }
 
 
-    public static boolean isT(String s, int a, Map<String, Integer> map){
+    public static boolean isT(String s, int a, Map<String, Integer> map, Map<String, Integer> maps){
         int l =s.length();
-        Map<String, Integer> maps = new HashMap<>(map.size());
+
         for(int i = 0; i < l; i = i+a){
             String tmp = s.substring(i, i + a);
             int b = map.getOrDefault(tmp, 0);
