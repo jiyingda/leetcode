@@ -85,26 +85,21 @@ public class Leet30 {
 
     public static boolean isT(String s, int a, Map<String, Integer> map){
         int l =s.length();
-        Map<String, Integer> maps = new HashMap<>();
+        Map<String, Integer> maps = new HashMap<>(map.size());
         for(int i = 0; i < l; i = i+a){
             String tmp = s.substring(i, i + a);
-            if(map.containsKey(tmp)){
-                if(maps.containsKey(tmp)){
-                    int aaaa = maps.get(tmp)+ 1;
-                    if(aaaa <= map.get(tmp)){
-                        maps.put(tmp, aaaa);
-                    } else {
-                        return false;
-                    }
-
+            int b = map.getOrDefault(tmp, 0);
+            if(b > 0){
+                int c = maps.getOrDefault(tmp, 0);
+                if(c  < b){
+                    maps.put(tmp, c + 1);
                 } else {
-                    maps.put(tmp, 1);
+                    return false;
                 }
-
             } else {
                 return false;
             }
         }
-        return map.equals(maps);
+        return true;
     }
 }
