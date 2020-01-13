@@ -1,6 +1,8 @@
 package com.jiyingda.leetcode;
 
-import java.util.List;
+import org.apache.commons.collections.MapUtils;
+
+import java.util.*;
 
 /**
  * @author jiyingda.
@@ -34,12 +36,75 @@ import java.util.List;
 public class Leet30 {
 
     public static void main(String[] args){
+        //String s = "barfoothefoobarman";
+        String s = "wordgoodgoodgoodbestword";
+        //String[] wo = {"foo","bar"};
+        String[] wo = {"word","good","best","word"};
+        List<Integer> list = findSubstring(s, wo);
+        System.out.println(list);
 
     }
 
 
-    public List<Integer> findSubstring(String s, String[] words) {
+    public static List<Integer> findSubstring(String s, String[] words) {
+        if(words.length < 1){
+            return Collections.emptyList();
+        }
+        int a = words[0].length();
+        int b = words.length;
+        int l = a * b;
+        if(s.length() < l){
+            return Collections.emptyList();
+        }
+        List<Integer> relist = new ArrayList<>();
+        Map<String, Integer> map = new HashMap<>();
+        for(String tmp : words){
+            if(map.containsKey(tmp)){
+                map.put(tmp, map.get(tmp)+ 1);
+            } else {
+                map.put(tmp, 1);
 
-        return null;
+            }
+        }
+
+        for(int i = 0; i < s.length(); i++){
+            if(i + l > s.length()){
+                break;
+            }
+            String str = s.substring(i, i+ l);
+            if(isT(str, a, map)){
+                relist.add(i);
+            }
+        }
+
+
+
+        return relist;
+    }
+
+
+    public static boolean isT(String s, int a, Map<String, Integer> map){
+        int l =s.length();
+        Map<String, Integer> maps = new HashMap<>();
+        for(int i = 0; i < l; i = i+a){
+            String tmp = s.substring(i, i + a);
+            if(map.containsKey(tmp)){
+                if(maps.containsKey(tmp)){
+                    int aaaa = maps.get(tmp)+ 1;
+                    if(aaaa <= map.get(tmp)){
+                        maps.put(tmp, aaaa);
+                    } else {
+                        return false;
+                    }
+
+                } else {
+                    maps.put(tmp, 1);
+                }
+
+            } else {
+                return false;
+            }
+        }
+        return map.equals(maps);
     }
 }
