@@ -27,4 +27,14 @@ package com.jiyingda.leetcode;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Leet33 {
+
+    public static void main(String[] args){
+
+    }
+
+
+    public static int search(int[] nums, int target) {
+
+        return 0;
+    }
 }
