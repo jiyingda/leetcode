@@ -30,11 +30,38 @@ public class Leet33 {
 
     public static void main(String[] args){
 
+        int[] nums = {0,1,2};
+        for(int a : nums){
+            System.out.println(search(nums, 3));;
+
+        }
     }
 
 
     public static int search(int[] nums, int target) {
 
-        return 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == target){
+                return i;
+            } else if(nums[i] < target){
+
+            } else {
+
+                int a = nums[nums.length-1];
+                if(a == target){
+                    return nums.length-1;
+                }
+
+                int j = nums.length-2;
+                while (j >= 0 && nums[j] < a){
+                    if(nums[j] == target){
+                        return j;
+                    }
+                    j--;
+                }
+            }
+        }
+
+        return -1;
     }
 }
