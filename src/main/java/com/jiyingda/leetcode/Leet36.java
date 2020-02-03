@@ -1,5 +1,8 @@
 package com.jiyingda.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author jiyingda
  * @date 2020/1/30
@@ -60,13 +63,142 @@ package com.jiyingda.leetcode;
  */
 public class Leet36 {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        /*char[][] board = {{'8', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
 
+        };*/
+
+        char[][] board = {
+                {'.','.','.','.','5','.','.','1','.'},
+                {'.','4','.','3','.','.','.','.','.'},
+                {'.','.','.','.','.','3','.','.','1'},
+                {'8','.','.','.','.','.','.','2','.'},
+                {'.','.','2','.','7','.','.','.','.'},
+                {'.','1','5','.','.','.','.','.','.'},
+                {'.','.','.','.','.','2','.','.','.'},
+                {'.','2','.','9','.','.','.','.','.'},
+                {'.','.','4','.','.','.','.','.','.'}};
+
+        System.out.println(isValidSudoku(board));;
     }
 
 
     public static boolean isValidSudoku(char[][] board) {
 
-        return false;
+
+        for(int i = 0; i < 9; i++){
+            Set<Character> set = new HashSet<>(9);
+            Set<Character> set2 = new HashSet<>(9);
+            for(int j = 0; j < 9; j++){
+                if(set.contains(board[i][j])){
+                    return false;
+                } else {
+                    if(board[i][j] != '.'){
+                        set.add(board[i][j]);
+                    }
+                }
+
+                if(set2.contains(board[j][i])){
+                    return false;
+                } else {
+                    if(board[j][i] != '.') {
+                        set2.add(board[j][i]);
+                    }
+                }
+
+
+            }
+
+        }
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                Set<Character> set = new HashSet<>(9);
+                if(!set.contains(board[3*i][3*j])){
+                    if(board[3*i][3*j] != '.'){
+                        set.add(board[3*i][3*j]);
+                    }
+
+                }else {
+                    return false;
+                }
+                if(!set.contains(board[3*i][3*j + 1])){
+                    if(board[3*i][3*j + 1] != '.'){
+                        set.add(board[3*i][3*j + 1]);
+                    }
+
+                }else {
+                    return false;
+                }
+                if(!set.contains(board[3*i][3*j + 2])){
+                    if(board[3*i][3*j + 2] != '.'){
+                        set.add(board[3*i][3*j + 2]);
+                    }
+
+                }else {
+                    return false;
+                }
+                if(!set.contains(board[3*i+1][3*j])){
+                    if(board[3*i+1][3*j] != '.'){
+                        set.add(board[3*i+1][3*j]);
+                    }
+
+                }else {
+                    return false;
+                }
+                if( !set.contains(board[3*i+1][3*j + 1])){
+                    if(board[3*i+1][3*j + 1] != '.'){
+                        set.add(board[3*i+1][3*j + 1]);
+                    }
+
+                }else {
+                    return false;
+                }
+                if(!set.contains(board[3*i+1][3*j + 2])){
+                    if(board[3*i+1][3*j + 2] != '.'){
+                        set.add(board[3*i+1][3*j + 2]);
+                    }
+
+                }else {
+                    return false;
+                }
+                if( !set.contains(board[3*i+2][3*j])){
+                    if(board[3*i+2][3*j] != '.'){
+                        set.add(board[3*i+2][3*j]);
+                    }
+
+                }else {
+                    return false;
+                }
+                if( !set.contains(board[3*i+2][3*j + 1])){
+                    if(board[3*i+2][3*j + 1] != '.'){
+                        set.add(board[3*i+2][3*j + 1]);
+                    }
+
+                }else {
+                    return false;
+                }
+                if( !set.contains(board[3*i+2][3*j + 2])){
+                    if(board[3*i+2][3*j + 2] != '.'){
+                        set.add(board[3*i+2][3*j + 2]);
+                    }
+
+                }else {
+                    return false;
+                }
+            }
+
+
+        }
+
+        return true;
     }
 }
