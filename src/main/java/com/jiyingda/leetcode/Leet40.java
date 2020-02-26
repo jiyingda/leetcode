@@ -5,44 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author jiyingda.
- * @date 2020/2/4.
- * 给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
- *
- * candidates 中的数字可以无限制重复被选取。
- *
- * 说明：
- *
- * 所有数字（包括 target）都是正整数。
- * 解集不能包含重复的组合。 
- * 示例 1:
- *
- * 输入: candidates = [2,3,6,7], target = 7,
- * 所求解集为:
- * [
- *   [7],
- *   [2,2,3]
- * ]
- * 示例 2:
- *
- * 输入: candidates = [2,3,5], target = 8,
- * 所求解集为:
- * [
- *   [2,2,2,2],
- *   [2,3,3],
- *   [3,5]
- * ]
- *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/combination-sum
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * @author jiyingda
+ * @date 2020/2/27
  */
-public class Leet39 {
+public class Leet40 {
 
     public static void main(String[] args){
-        int[] candidates = {5,3,2};
+        int[] candidates = {10,1,2,7,6,1,5};
         List<List<Integer>> reList = combinationSum(candidates, 8);
-System.out.println("ss");
+        System.out.println("ss");
     }
 
 
@@ -56,6 +27,7 @@ System.out.println("ss");
 
     public static List<List<Integer>> combinationSum(int[] candidates, int target, int st, int idx, List<Integer> list, int tmpSum, List<List<Integer>> reList) {
         for(int j = st; j < idx; j++){
+
             if(candidates[j] + tmpSum > target){
                 break;
             } else if(candidates[j] + tmpSum == target){
@@ -65,7 +37,10 @@ System.out.println("ss");
             } else {
                 List<Integer> ttmpList = new ArrayList<>(list);
                 ttmpList.add(candidates[j]);
-                combinationSum(candidates, target,j, idx, ttmpList, tmpSum + candidates[j], reList);
+                combinationSum(candidates, target,j+1, idx, ttmpList, tmpSum + candidates[j], reList);
+            }
+            while ((j+1) < idx && candidates[j+1] == candidates[j]){
+                j++;
             }
         }
 
