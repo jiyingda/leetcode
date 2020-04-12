@@ -1,4 +1,4 @@
-package com.jiyingda.leetcode50;
+package com.jiyingda.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;

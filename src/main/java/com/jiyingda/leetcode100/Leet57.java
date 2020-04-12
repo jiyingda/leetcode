@@ -1,4 +1,4 @@
-package com.jiyingda.leetcode50;
+package com.jiyingda.leetcode100;
 
 import java.util.ArrayList;
 import java.util.List;
