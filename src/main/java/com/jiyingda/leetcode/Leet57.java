@@ -1,5 +1,8 @@
 package com.jiyingda.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author jiyingda.
  * @date 2020/4/10.
@@ -24,11 +27,52 @@ package com.jiyingda.leetcode;
 public class Leet57 {
 
     public static void main(String[] args){
-
+        int[][] intervals = {{1,2},{3,5},{6,7},{8,10},{12,16}};
+        int[] newInterval = {4,8};
+        insert(intervals, newInterval);
     }
 
     public static int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> reList = new ArrayList<>();
+        int len = intervals.length;
+        boolean flag = false;
+        for(int i =0; i < len; i++){
+            if(flag){
+                reList.add(intervals[i]);
+            } else {
+                if(newInterval[1] < intervals[i][0]){
+                    reList.add(newInterval);
+                    reList.add(intervals[i]);
+                    flag = true;
+                }else if(newInterval[1] == intervals[i][0]){
+                    newInterval[1] = intervals[i][1];
+                    reList.add(newInterval);
+                    flag = true;
+                } else if(newInterval[0] > intervals[i][1]){
+                    reList.add(intervals[i]);
+                } else if(newInterval[0] <= intervals[i][1]){
+                    if(newInterval[0] > intervals[i][0]){
+                        newInterval[0] = intervals[i][0];
+                    }
 
-        return null;
+                    if(newInterval[1] >= intervals[i][1]){
+
+                    } else {
+                        newInterval[1] = intervals[i][1];
+                    }
+                }
+            }
+        }
+        if(!flag){
+            reList.add(newInterval);
+        }
+
+        int[][] rrr = new int[reList.size()][2];
+        int i = 0;
+        for(int[] r : reList){
+            rrr[i] = r;
+            i++;
+        }
+        return rrr;
     }
 }
