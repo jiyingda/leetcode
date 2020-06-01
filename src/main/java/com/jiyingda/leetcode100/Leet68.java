@@ -74,60 +74,54 @@ public class Leet68 {
         for(String sss : ss){
             System.out.println(sss);
         }
-
     }
 
-
-
-String sssssss = "justification.  ";
     public static List<String> fullJustify(String[] words, int maxWidth) {
         int tmp = words[0].length();
         List<String> rrrrr = new ArrayList<>();
-        List<String> reList = new ArrayList<>();
-        reList.add(words[0]);
+        int left = 0;
+        int right = 1;
         char[] lll = new char[maxWidth];
         for(int i = 0; i < maxWidth; i++){
             lll[i] = ' ';
         }
         for(int i = 1; i < words.length;i++){
             if(tmp + words[i].length() + 1 <= maxWidth){
-                reList.add(words[i]);
+                right++;
                 tmp = tmp + words[i].length() + 1;
             } else {
-                int size = reList.size();
+                int size = right - left;
                 int m = maxWidth - tmp + size - 1;
 
                 if(size == 1){
-                    String sb = reList.get(0) +
-                            String.valueOf(lll, 0, maxWidth - reList.get(0).length());
-                    rrrrr.add(sb);
+                    rrrrr.add(words[left] + String.valueOf(lll, 0, maxWidth - words[left].length()));
                 } else {
                     int n = m/(size-1);
                     int k = m % (size-1);
                     StringBuilder sb = new StringBuilder();
-                    for(int p = 0; p < size;p++){
-                        if(p == reList.size() - 1){
-                            sb.append(reList.get(p));
+                    for(int p = left; p < right;p++){
+                        if(p == right - 1){
+                            sb.append(words[p]);
                         } else {
                             if(k > 0){
-                                sb.append(reList.get(p)).append(lll, 0, n + 1);
+                                sb.append(words[p]).append(lll, 0, n + 1);
                                 k--;
                             } else {
-                                sb.append(reList.get(p)).append(lll, 0, n);
+                                sb.append(words[p]).append(lll, 0, n);
                             }
                         }
                     }
                     rrrrr.add(sb.toString());
                 }
                 tmp = words[i].length();
-                reList.clear();
-                reList.add(words[i]);
+                left = i;
+                right = left + 1;
             }
         }
-        if(reList.size() > 0){
+        if(right - left > 0){
             StringBuilder sb = new StringBuilder();
-            for(String s : reList){
-                sb.append(s);
+            for(int i = left; i < right; i++){
+                sb.append(words[i]);
                 if(sb.length() < maxWidth){
                     sb.append(' ');
                 }
