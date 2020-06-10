@@ -11,20 +11,20 @@ public class Leet14 {
         if(strs.length == 1){
             return strs[0];
         }
-        String re = "";
+        StringBuilder re = new StringBuilder();
         for(int j = 0; j < strs[0].length(); j++){
             char c0 = strs[0].charAt(j);
 
             for(int i = 1; i < strs.length; i++){
-                if(strs[i].length() >= j && c0 == strs[i].charAt(j)){
+                if(strs[i].length() > j && c0 == strs[i].charAt(j)){
 
                 }else{
-                    return re;
+                    return re.toString();
                 }
             }
-            re += c0;
+            re.append(c0);
         }
-        return re;
+        return re.toString();
     }
 
     public static void main(String[] args){
