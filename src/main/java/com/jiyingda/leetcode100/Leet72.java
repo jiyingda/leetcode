@@ -1,5 +1,7 @@
 package com.jiyingda.leetcode100;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * @author jiyingda.
  * @date 2020/6/10.
@@ -40,6 +42,7 @@ public class Leet72 {
 
     public static void main(String[] args){
 
+        System.out.print(minDistance("intention", "execution"));
     }
 
 
@@ -47,6 +50,27 @@ public class Leet72 {
     public static int minDistance(String word1, String word2) {
 
 
-        return 0;
+        return findLCS(word1, word1.length(), word2, word2.length());
     }
+
+
+    public static int findLCS(String word1, int n, String word2, int m) {
+        int[][] dp = new int[n + 1][m + 1];
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= m; j++) {
+                dp[i][j] = 0;
+            }
+        }
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[n][m];
+    }
+
 }
