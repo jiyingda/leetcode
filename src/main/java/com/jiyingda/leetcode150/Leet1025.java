@@ -4,7 +4,7 @@ package com.jiyingda.leetcode150;
  * @author jiyingda.
  * @date 2020/7/23.
  */
-public class Leetcode1025 {
+public class Leet1025 {
 
     public static void main(String[] args){
 
