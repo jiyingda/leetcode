@@ -1,7 +1,5 @@
 package com.jiyingda.test;
 
-import org.apache.commons.collections.CollectionUtils;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +15,7 @@ public class RandomList {
         for(int i = 0; i < 100; i++){
             list.add(i);
         }
-        if(CollectionUtils.isEmpty(list)){
+        if(list.isEmpty()){
             return ;
         }
         int size = 20;
