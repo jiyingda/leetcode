@@ -1,3 +1,4 @@
+/*
 package com.jiyingda.tensorflow;
 
 import org.tensorflow.Graph;
@@ -5,10 +6,12 @@ import org.tensorflow.Session;
 import org.tensorflow.Tensor;
 import org.tensorflow.TensorFlow;
 
+*/
 /**
  * @author jiyingda.
  * @date 2019/11/27.
- */
+ *//*
+
 public class HelloTf {
     public static void main(String[] args) throws Exception {
         try (Graph g = new Graph()) {
@@ -31,3 +34,4 @@ public class HelloTf {
         }
     }
 }
+*/
