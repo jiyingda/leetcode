@@ -28,7 +28,7 @@ public class Leet213 {
 
 
     public static void main(String[] args){
-        int[] nums = new int[]{1,2,3,1};
+        int[] nums = new int[]{2,3,2};
         System.out.print(rob(nums));;
 
     }
@@ -61,8 +61,8 @@ public class Leet213 {
 
         for(int i = 3; i < len; i++){
             ss[i] = Math.max(nums[i] + ss[i-2], nums[i] + ss[i-3]);
-            max = Math.max(max, ss[i]);
+            //max = Math.max(max, ss[i]);
         }
-        return max;
+        return Math.max(ss[len-2], ss[len-1]);
     }
 }
