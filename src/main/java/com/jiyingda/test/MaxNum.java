@@ -3,6 +3,9 @@ package com.jiyingda.test;
 import java.util.Arrays;
 
 /**
+ *
+ * 返回k小个数
+ *
  * @author jiyingda.
  * @date 2020/11/22.
  */
