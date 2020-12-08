@@ -1,5 +1,7 @@
 package com.jiyingda.test;
 
+import java.util.Date;
+import java.util.PriorityQueue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;
@@ -38,12 +40,18 @@ public class Heap {
 
 
 
-        String java = new String("123");
-        String java1 = new String("java");
-        System.out.print(java == java.intern());
-        System.out.print("\n");
-        tttt();
-        tttt2();
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.add(10);
+        queue.add(11);
+        queue.add(2);
+        queue.add(13);
+        queue.add(6);
+        System.out.println(queue.size());
+
+        Date now = new Date();
+        System.out.println("\n" + now.getTime());
+        long st = now.getTime() - 2 * 24 * 60 * 60 * 1000;
+        System.out.println("\n" + st);
 
 
 
