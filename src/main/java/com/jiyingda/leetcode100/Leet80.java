@@ -54,14 +54,46 @@ package com.jiyingda.leetcode100;
 public class Leet80 {
 
     public static void main(String[] args){
+        int[] nums = {0,0,1,1,1,1,2,3,3};
+        int s = removeDuplicates(nums);
+        System.out.print("\n\n" + s);
 
     }
 
 
     public static int removeDuplicates(int[] nums) {
+        if(nums.length < 3){
+            return 2;
+        }
 
-
-        return 0;
+        int len = 0;
+        int i = 0;
+        while (i+1 < nums.length){
+            if(nums[i] == nums[i+1]){
+                if(len != i){
+                    nums[len] = nums[i];
+                    nums[len+1] = nums[i+1];
+                }
+                len+=2;
+                int k = i + 2;
+                while (k < nums.length && nums[i+1]==nums[k]){
+                    k++;
+                }
+                i = k;
+            } else {
+                if(len != i){
+                    nums[len] = nums[i];
+                }
+                len++;
+                i++;
+            }
+        }
+        while (i < nums.length){
+            nums[len] = nums[i];
+            i++;
+            len++;
+        }
+        return len;
 
     }
 }
