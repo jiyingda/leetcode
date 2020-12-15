@@ -56,9 +56,6 @@ public class Leet125 {
     }
 
     public static boolean isOtherChar(char c){
-        if(((int) c >= 48 && (int) c <=57) || ((int) c >= 97 && (int) c <= 122) ){
-            return false;
-        }
-        return true;
+        return ((int) c < 48 || (int) c > 57) && ((int) c < 97 || (int) c > 122);
     }
 }
