@@ -39,10 +39,15 @@ public class Leet119 {
 
 
     public static List<Integer> getRow(int rowIndex) {
+        if(rowIndex == 0){
+            return Arrays.asList(1);
+        }
+        if(rowIndex == 1){
+            return Arrays.asList(1,1);
+        }
         rowIndex++;
         Integer[] a = new Integer[rowIndex];
         Integer[] b = new Integer[rowIndex];
-        int a_l = 2;
         a[0] = 1;
         a[1] = 1;
         int b_l = 3;
@@ -55,7 +60,6 @@ public class Leet119 {
             Integer[] c = a;
             a = b;
             b = c;
-            a_l ++;
             b_l ++;
         }
 
