@@ -34,11 +34,14 @@ public class Leet143 {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        n4.next = n5;
-        reorderList(n1);
+        //n4.next = n5;
+        reorderList(n5);
     }
 
     public static void reorderList(ListNode head) {
+        if(head == null){
+            return;
+        }
         ListNode fast = head;
         ListNode slow = head;
         ListNode left = head;
@@ -56,12 +59,25 @@ public class Leet143 {
         ListNode rrr = new ListNode(0);
         ListNode right = slow.next;
         slow.next = null;
-        rrr.next = right;
-        while (right != null) {
 
+        while (right != null) {
+            ListNode tmp = right;
+            right = right.next;
+            tmp.next = rrr.next;
+            rrr.next = tmp;
+        }
+        right = rrr.next;
+        ListNode res = left;
+        while (right != null) {
+            ListNode tmp = right;
+            right = right.next;
+            tmp.next = left.next;
+            left.next = tmp;
+            left = left.next.next;
         }
 
-        System.out.print(fast + "" + slow);
+        head = res;
+        System.out.print(fast + "" + slow + "" + rrr);
 
     }
 }
