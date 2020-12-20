@@ -34,30 +34,17 @@ public class Leet167 {
 
 
     public static int[] twoSum(int[] numbers, int target) {
-        for(int i = numbers.length-1; i < numbers.length; i--){
-            int[] sum = twoSum(numbers, i, target- numbers[i]);
-            if(sum != null){
-                return sum;
+        int low = 0, high = numbers.length - 1;
+        while (low < high) {
+            int sum = numbers[low] + numbers[high];
+            if (sum == target) {
+                return new int[]{low + 1, high + 1};
+            } else if (sum < target) {
+                ++low;
+            } else {
+                --high;
             }
         }
-        return null;
-    }
-
-    public static int[] twoSum(int[] numbers,int len, int target) {
-        int i = len-1;
-        if(numbers[0] > target){
-            return null;
-        }
-        while (i >= 0) {
-            if(numbers[i] == target){
-                return new int[]{i, len};
-            }
-            if(numbers[i] < target){
-                break;
-            }
-            i--;
-        }
-
-        return null;
+        return new int[]{-1, -1};
     }
 }
