@@ -55,7 +55,62 @@ public class Leet134 {
     }
 
 
+
     public static int canCompleteCircuit(int[] gas, int[] cost) {
+        int len = gas.length;
+        ListNode head = new ListNode(gas[0] - cost[0], 0);
+        ListNode idx = head;
+        for(int i = 1; i < len; i++){
+            idx.next = new ListNode(gas[i] - cost[i], i);
+            idx = idx.next;
+        }
+        ListNode end = idx;
+        idx.next = head;
+
+
+        int m = 0;
+        while (head.next != end){
+            if(head.val < 0){
+                head = head.next;
+                end = end.next;
+                m++;
+                if(m >= len){
+                    return -1;
+                }
+            } else {
+                head.val = head.val + head.next.val;
+                head.idx = head.next.idx;
+                head.next = head.next.next;
+            }
+        }
+
+        if(head.val + end.val < 0){
+            return  -1;
+        } else {
+            int n = 0;
+            if(head.val > end.val){
+                n = end.idx + 1;
+            } else {
+                n = head.idx + 1;
+            }
+            if(n >= len){
+                n = n - len;
+            }
+            return n;
+        }
+    }
+    public static class ListNode {
+        public int val;
+        public int idx;
+        public ListNode next;
+        public ListNode(int x, int idx) {
+            this.val = x;
+            this.idx = idx;
+        }
+    }
+
+
+    /*public static int canCompleteCircuit(int[] gas, int[] cost) {
         int n = gas.length;
         int i = 0;
         while (i < n) {
@@ -77,6 +132,6 @@ public class Leet134 {
             }
         }
         return -1;
-    }
+    }*/
 
 }
