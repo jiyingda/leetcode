@@ -1,8 +1,7 @@
-package com.jiyingda.leetcode150;
+package com.jiyingda.leetcode200;
 
 /**
- * @author jiyingda.
- * @date 2020/7/23.
+ *
  * 数组的每个索引作为一个阶梯，第 i个阶梯对应着一个非负数的体力花费值 cost[i](索引从0开始)。
  *
  * 每当你爬上一个阶梯你都要花费对应的体力花费值，然后你可以选择继续爬一个阶梯或者爬两个阶梯。
@@ -27,27 +26,26 @@ package com.jiyingda.leetcode150;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/min-cost-climbing-stairs
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
+ * @author jiyingda
+ * @date 2020/12/21 13:24
  */
 public class Leet746 {
-
-    public static void main(String[] args){
-        int[] cost = new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+    public static void main(String[] args) {
+        int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         System.out.print(minCostClimbingStairs(cost));;
 
     }
 
-
-
     public static int minCostClimbingStairs(int[] cost) {
-
         int len = cost.length;
-        int[] mm = new int[len];
-        mm[0] = cost[0];
-        mm[1] = cost[1];
+        int[] dp = new int[len];
+        dp[0] = cost[0];
+        dp[1] = cost[1];
         for(int i = 2; i < len; i++){
-            mm[i] = Math.min(mm[i-1], mm[i-2]) + cost[i];
+            dp[i] = Math.min(dp[i-1], dp[i-2]) + cost[i];
         }
 
-        return Math.min(mm[len-1], mm[len-2]);
+        return Math.min(dp[len-1], dp[len-2]);
     }
 }
