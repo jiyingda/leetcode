@@ -1,5 +1,8 @@
 package com.jiyingda.leetcode200;
 
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 /**
@@ -57,13 +60,35 @@ import java.util.PriorityQueue;
 public class Leet239 {
 
     public static void main(String[] args){
-        PriorityQueue queue = new PriorityQueue();
-        queue.remove();
+        int[] nums = {-6,-10,-7,-1,-9,9,-8,-4,10,-5,2,9,0,-7,7,4,-2,-10,8,7};
+        int[] mmm = maxSlidingWindow(nums, 7);
+        for(int i : mmm){
+            System.out.print(i + " -> ");
+        }
+
+
     }
 
 
     public static int[] maxSlidingWindow(int[] nums, int k) {
-
-        return null;
+        int n = nums.length;
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+            public int compare(int[] pair1, int[] pair2) {
+                return pair1[0] != pair2[0] ? pair2[0] - pair1[0] : pair2[1] - pair1[1];
+            }
+        });
+        for (int i = 0; i < k; ++i) {
+            pq.offer(new int[]{nums[i], i});
+        }
+        int[] ans = new int[n - k + 1];
+        ans[0] = pq.peek()[0];
+        for (int i = k; i < n; ++i) {
+            pq.offer(new int[]{nums[i], i});
+            while (pq.peek()[1] <= i - k) {
+                pq.poll();
+            }
+            ans[i - k + 1] = pq.peek()[0];
+        }
+        return ans;
     }
 }
