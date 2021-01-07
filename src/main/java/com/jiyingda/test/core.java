@@ -14,7 +14,7 @@ public class core {
     public static void main(String[] args) throws IOException {
 
 
-        //1
+        //11
         //2
         File file1 = new File("D:\\notePadFiles\\core.txt");
         if(file1.isFile() && file1.exists()) {
