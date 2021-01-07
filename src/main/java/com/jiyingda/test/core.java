@@ -15,6 +15,7 @@ public class core {
 
 
         //1
+        //2
         File file1 = new File("D:\\notePadFiles\\core.txt");
         if(file1.isFile() && file1.exists()) {
             InputStreamReader isr = new InputStreamReader(new FileInputStream(file1), "utf-8");
