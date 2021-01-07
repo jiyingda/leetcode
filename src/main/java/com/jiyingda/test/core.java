@@ -15,7 +15,7 @@ public class core {
 
 
         //11
-        //22
+        //22333555
         File file1 = new File("D:\\notePadFiles\\core.txt");
         if(file1.isFile() && file1.exists()) {
             InputStreamReader isr = new InputStreamReader(new FileInputStream(file1), "utf-8");
