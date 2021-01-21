@@ -11,7 +11,6 @@ import java.util.List;
 public class ObjectSize {
 
     public static void main(String[] args){
-        System.out.print(jdk.nashorn.internal.ir.debug.ObjectSizeCalculator.getObjectSize(new A()));
         int a = 100000;
         int i = 0;
         while ( a > 2) {
