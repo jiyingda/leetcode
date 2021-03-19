@@ -1,21 +1,24 @@
+/**
+ * @(#)Testpre.java, 3月 19, 2021.
+ * <p>
+ * Copyright 2021 fenbi.com. All rights reserved.
+ * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
 package com.jiyingda.test;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
- * @author jiyingda.
- * @date 2020/11/26.
+ * @author jiyingda
  */
-public class core {
+public class Testpre {
 
     public static void main(String[] args) throws IOException {
-
-
-        //11
-        //22333555
         File file1 = new File("/Users/jiyingda/work/2");
         if(file1.isFile() && file1.exists()) {
             InputStreamReader isr = new InputStreamReader(new FileInputStream(file1), "utf-8");
@@ -30,7 +33,5 @@ public class core {
             }
 
         }
-
     }
-
 }
