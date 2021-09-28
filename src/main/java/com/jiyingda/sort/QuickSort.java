@@ -53,8 +53,8 @@ public class QuickSort {
         int basic = arr[R];
         int less = L - 1;
         int more = R + 1;
-        while(L < more) {
-            if(arr[L] < basic) {
+        while (L < more) {
+            if (arr[L] < basic) {
                 swap(arr, ++less, L++);
             } else if (arr[L] > basic) {
                 swap(arr, --more, L);
