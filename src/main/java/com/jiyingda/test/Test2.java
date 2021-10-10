@@ -5,8 +5,12 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * @author jiyingda
@@ -20,6 +24,14 @@ public class Test2 {
     }
 
     private static void swagger(JSONObject swagger) {
+        Map map = new HashMap<>();
+        map.put("","");
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
+
+        ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+        threadLocal.set(1);
+        int aa = threadLocal.get();
+        System.out.println(aa);
         JSONObject paths = swagger.getJSONObject("paths");
         paths.forEach((k,v) -> {
             JSONObject ss = (JSONObject) JSONObject.parse(v.toString());

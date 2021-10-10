@@ -1,6 +1,7 @@
 package com.jiyingda.sort;
 
 import java.util.Random;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author jiyin
@@ -9,8 +10,9 @@ import java.util.Random;
 public class QuickSort {
     public static void main(String[] args) {
 
-        int[] arr = new int[]{5,4,6,7,3,8,2,1,9};
-        quickSort(arr);
+        int[] arr = new int[]{5,4,6,7,3,9,2,1,8};
+        //quickSort(arr);
+        quickSort2(arr);
         for(int a : arr){
             System.out.print(a);
         }
@@ -34,7 +36,7 @@ public class QuickSort {
     public static void quickSort(int[] arr, int L, int R) {
         if(L < R) {
             // 把数组中随机的一个元素与最后一个元素交换，这样以最后一个元素作为基准值实际上就是以数组中随机的一个元素作为基准值
-            swap(arr, new Random().nextInt(R - L + 1) + L, R);
+            //swap(arr, new Random().nextInt(R - L + 1) + L, R);
             int[] p = partition(arr, L, R);
             quickSort(arr, L, p[0] - 1);
             quickSort(arr, p[1] + 1, R);
@@ -74,5 +76,48 @@ public class QuickSort {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+    public static void quickSort2(int[] array) {
+        sort(array, 0, array.length - 1, 3);
+
+    }
+
+    public static void sort(int[] array, int left, int right, int k) {
+        if (left > right) {
+            return;
+        }
+        int base = array[left];
+        int i = left, j = right;
+        while (i < j) {
+            while (array[j] >= base && i < j) {
+                j--;
+            }
+            while (array[i] <= base && i < j) {
+                i++;
+            }
+            if(i < j) {
+                int tmp = array[i];
+                array[i] = array[j];
+                array[j] = tmp;
+            }
+        }
+
+        array[left] = array[i];
+        array[i] = base;
+        if (i == k) {
+            // 第k个大数
+
+        } else  if (i < k) {
+            sort(array, i + 1, right, k);
+        } else {
+            sort(array, left, i - 1, k);
+        }
+        // 快排
+        //sort(array, left, i - 1, k);
+        //sort(array, i + 1, right, k);
+
+
+
     }
 }
