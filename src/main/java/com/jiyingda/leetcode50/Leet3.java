@@ -1,9 +1,12 @@
 package com.jiyingda.leetcode50;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Leet3 {
     public static void main(String... args){
 
-        System.out.println(lengthOfLongestSubstring("sbcsafgr"));
+        System.out.println(lengthOfLongestSubstring("abaabbcbb"));
 
     }
 
@@ -14,28 +17,31 @@ public class Leet3 {
             return 0;
 
         }
-        char[] sss = s.toCharArray();
-        int start = 0;
-        int end = 1;
-        int length = 1;
-        for(int i = 1; i < sss.length; i++){
-
-            for(int j = start; j < end; j++){
-
-                if(sss[i] == sss[j]){
-                    if((end - start) > length){
-                        length = end - start;
-                    }
-                    start = j + 1;
-                    end = i;
-                    break;
+        char[] array = s.toCharArray();
+        int left = 0;
+        int right = 1;
+        int max = 1;
+        int currentLen = 1;
+        Map<Character, Integer> map = new HashMap<>();
+        map.put(array[left], 0);
+        while (left < right && right < array.length) {
+            if (map.containsKey(array[right])) {
+                int ll = map.get(array[right]);
+                max = Math.max(max, currentLen);
+                while (left <= ll) {
+                    map.remove(array[left]);
+                    left++;
+                    currentLen--;
                 }
+                map.put(array[right], right);
+                right++;
+                currentLen++;
+            } else {
+                map.put(array[right], right);
+                right++;
+                currentLen++;
             }
-            end++;
         }
-        if((end - start) > length){
-            length = end - start;
-        }
-        return length;
+        return Math.max(max, currentLen);
     }
 }

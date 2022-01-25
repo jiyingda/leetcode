@@ -16,7 +16,7 @@ public class core {
 
         //11
         //22333555
-        File file1 = new File("D:\\notePadFiles\\core.txt");
+        File file1 = new File("/Users/jiyingda/vs/math");
         if(file1.isFile() && file1.exists()) {
             InputStreamReader isr = new InputStreamReader(new FileInputStream(file1), "utf-8");
             BufferedReader br = new BufferedReader(isr);

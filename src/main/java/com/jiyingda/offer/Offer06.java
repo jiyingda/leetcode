@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
 /**
  *
@@ -38,7 +39,7 @@ public class Offer06 {
         ListNode n3 = new ListNode(3);
         n1.next = n2;
         n2.next = n3;
-        int[] ints = reversePrint(null);
+        int[] ints = reversePrint(n1);
         for(int i : ints){
             System.out.print(i + "->");
         }
@@ -46,14 +47,14 @@ public class Offer06 {
 
 
     public static int[] reversePrint(ListNode head) {
-        List<Integer> list = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
         while (head != null) {
-            list.add(head.val);
+            stack.add(head.val);
             head = head.next;
         }
-        int[] re = new int[list.size()];
-        for(int i = re.length-1,j=0; i >= 0; i--,j++){
-            re[i] = list.get(j);
+        int[] re = new int[stack.size()];
+        for (int i = 0; i < re.length; i++) {
+            re[i] = stack.pop();
         }
         return re;
     }
