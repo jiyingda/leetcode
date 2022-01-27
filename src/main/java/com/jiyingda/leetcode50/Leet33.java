@@ -30,15 +30,45 @@ public class Leet33 {
 
     public static void main(String[] args){
 
-        int[] nums = {0,1,2};
-        for(int a : nums){
-            System.out.println(search(nums, 3));;
+        int[] nums = {4, 5, 1, 3, 4};
+        //for(int a : nums){
+            System.out.println(search(nums, 5));;
 
+       // }
+    }
+
+    public static int search(int[] nums, int target) {
+
+        return search(nums, 0, nums.length-1, target);
+    }
+
+    public static int search(int[] nums, int left, int right, int target) {
+        if (left > right) {
+            return -1;
+        }
+        int mid = (right - left) / 2 + left;
+        if (target == nums[mid]) {
+            return mid;
+        }
+
+        if (nums[left] < nums[right]) {
+            if (target > nums[mid]) {
+                return search(nums, mid + 1, right, target);
+            } else {
+                return search(nums, left, mid - 1, target);
+            }
+
+        } else {
+            int a = search(nums, mid + 1, right, target);
+            if (a >= 0) {
+                return a;
+            }
+            return search(nums, left, mid - 1, target);
         }
     }
 
 
-    public static int search(int[] nums, int target) {
+    public static int search2(int[] nums, int target) {
 
         for(int i = 0; i < nums.length; i++){
             if(nums[i] == target){

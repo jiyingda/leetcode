@@ -30,9 +30,28 @@ public class Leet49 {
 
 
     public static void main(String[] args){
-        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        //String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        String[] strs = {""};
         List<List<String>> re = groupAnagrams(strs);
         System.out.println(re);
+    }
+
+
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] ch = s.toCharArray();
+                    Arrays.sort(ch);
+            String ss = String.valueOf(ch);
+            if (map.containsKey(ss)) {
+                map.get(ss).add(s);
+            } else {
+                List<String> sss = new ArrayList<>();
+                sss.add(s);
+                map.put(ss, sss);
+            }
+        }
+        return new ArrayList<>(map.values());
     }
 
 
@@ -40,7 +59,7 @@ public class Leet49 {
 
 
 
-    public static List<List<String>> groupAnagrams(String[] strs) {
+    public static List<List<String>> groupAnagrams2(String[] strs) {
 
 
         List<List<String>> reList = new ArrayList<>();

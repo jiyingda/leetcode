@@ -1,6 +1,8 @@
 package com.jiyingda.leetcode50;
 
 
+import java.util.Stack;
+
 /**
  * @author jiyingda
  * @date 2019/8/10
@@ -40,13 +42,39 @@ package com.jiyingda.leetcode50;
 public class Leet20 {
 
     public static void main(String[] args){
-        System.out.println(isValid("(())([)]"));
+        System.out.println(isValid(")()){(]}"));
 
+    }
+    public static boolean isValid(String s) {
+        char[] ss = s.toCharArray();
+        int len = ss.length;
+        if(len % 2 != 0){
+            return false;
+        }
+        Stack<Character> stack = new Stack<>();
+        for (char c : ss) {
+            if ('(' == c || '{' == c || '[' == c) {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char b = stack.pop();
+                if (!equals(b, c)) {
+                    return false;
+                }
+            }
+
+        }
+        return stack.isEmpty();
+    }
+
+    private static boolean equals(char a, char b) {
+        return (a == '(' && b == ')') || (a == '{' && b == '}') || (a == '[' && b == ']');
     }
 
 
-
-    public static boolean isValid(String s) {
+    public static boolean isValid2(String s) {
         char[] ss = s.toCharArray();
         int len = ss.length;
         if(len % 2 != 0){
