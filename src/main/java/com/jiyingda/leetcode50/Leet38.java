@@ -47,27 +47,25 @@ public class Leet38 {
     public static String countAndSay(int n) {
         String s = "1";
         for(int i = 1; i < n; i++){
-
-            char[] ch = s.toCharArray();
-            char tmp = ch[0];
+            char[] array = s.toCharArray();
+            char tmp = array[0];
             int a = 0;
-            StringBuilder sssss = new StringBuilder();
-            for(char c : ch){
-                if(c == tmp){
+            StringBuilder sb = new StringBuilder();
+            for (char c : array) {
+                if (c == tmp) {
                     a++;
-                }else {
-                    if(a > 0){
-                        sssss.append(a).append(tmp);
+                } else {
+                    if (a > 0) {
+                        sb.append(a).append(tmp);
                     }
                     tmp = c;
                     a=1;
                 }
-
             }
-            if(a > 0){
-                sssss.append(a).append(tmp);
+            if (a > 0) {
+                sb.append(a).append(tmp);
             }
-            s = sssss.toString();
+            s = sb.toString();
         }
 
 
