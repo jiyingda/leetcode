@@ -40,14 +40,14 @@ public class Leet102 {
         TreeNode n3 = new TreeNode(20);
         TreeNode n4 = new TreeNode(15);
         TreeNode n5 = new TreeNode(7);
-        //n1.left = n2;
-        //n1.right = n3;
-        //n3.left = n4;
-        //n3.right = n5;
-        List<List<Integer>> list = levelOrder(null);
+        n1.left = n2;
+        n1.right = n3;
+        n3.left = n4;
+        n3.right = n5;
+        List<List<Integer>> list = levelOrder(n1);
         for(List<Integer> r : list){
             for(Integer i : r){
-                System.out.print(i);
+                System.out.print(i + "\t");
             }
             System.out.print("\n");
         }
@@ -55,6 +55,42 @@ public class Leet102 {
     }
 
     public static List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Deque<TreeNode> deque = new LinkedList<>();
+        deque.offer(root);
+
+        boolean f = false;
+        while (deque.size() > 0) {
+            int size = deque.size();
+            List<Integer> temp = new ArrayList<>();
+            while (size > 0) {
+                TreeNode node = deque.poll();
+                temp.add(node.val);
+                if (node.left != null) {
+                    deque.offer(node.left);
+                }
+                if (node.right != null) {
+                    deque.offer(node.right);
+                }
+                size--;
+            }
+            if (f) {
+                Collections.reverse(temp);
+                f = false;
+            } else {
+                f = true;
+            }
+            list.add(temp);
+
+        }
+        return list;
+    }
+
+
+    public static List<List<Integer>> levelOrder2(TreeNode root) {
         if(root == null){
             return Collections.emptyList();
         }
