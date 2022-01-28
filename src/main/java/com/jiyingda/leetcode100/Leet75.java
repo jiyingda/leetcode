@@ -27,7 +27,7 @@ package com.jiyingda.leetcode100;
  */
 public class Leet75 {
     public static void main(String[] args) {
-        int[] nums = {1,1,1,2,0};
+        int[] nums = {0, 1,1,2,2,2,1,2,0};
         sortColors(nums);
         for(int i : nums){
             System.out.print(i);
@@ -35,8 +35,33 @@ public class Leet75 {
 
     }
 
-
     public static void sortColors(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        int i = 0;
+        while (i <= right) {
+            if (nums[i] == 0) {
+                swap(nums, left, i);
+                left++;
+                i++;
+            } else if (nums[i] == 2) {
+                swap(nums, right, i);
+                right--;
+            } else {
+                i++;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+    public static void sortColors2(int[] nums) {
         int a = 0;
         int len = nums.length;
         int b = len-1;

@@ -59,8 +59,33 @@ public class Leet73 {
 
     }
 
-
     public static void setZeroes(int[][] matrix) {
+        int x = matrix.length;
+        int y = matrix[0].length;
+        Set<Integer> setX = new HashSet<>();
+        Set<Integer> setY = new HashSet<>();
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                if (matrix[i][j] == 0) {
+                    setX.add(i);
+                    setY.add(j);
+                }
+            }
+        }
+        for (int i : setX) {
+            for (int j = 0; j < y; j++) {
+                matrix[i][j] = 0;
+            }
+        }
+        for (int j : setY) {
+            for (int i = 0; i < x; i++) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+
+
+    public static void setZeroes2(int[][] matrix) {
         int n = matrix.length;
         int m = matrix[0].length;
         Set<Integer> nL = new HashSet<>();

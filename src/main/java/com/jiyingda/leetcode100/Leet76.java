@@ -26,10 +26,11 @@ public class Leet76 {
     static Map<Character, Integer> cnt = new HashMap<Character, Integer>();
 
     public static void main(String[] args) {
+        minWindow2("ADOBECODEBANC", "ABC");
 
     }
 
-    public static String minWindow(String s, String t) {
+    public static String minWindow2(String s, String t) {
         int tLen = t.length();
         for (int i = 0; i < tLen; i++) {
             char c = t.charAt(i);
