@@ -29,7 +29,8 @@ import java.util.Map;
  */
 public class Leet131 {
     public static void main(String[] args) {
-        List<List<String>> list = partition("aba");
+        //isHw("abba");
+        List<List<String>> list = partition("aaabb");
         for(List<String> ls : list){
             for(String l : ls){
                 System.out.print(l + " ,");
@@ -39,7 +40,58 @@ public class Leet131 {
 
     }
 
+
+
+    static Map<String, Boolean> map = new HashMap<>();
+    static List<List<String>> list = new ArrayList<>();
     public static List<List<String>> partition(String s) {
+        list = new ArrayList<>();
+        map = new HashMap<>();
+        partition(s, new ArrayList<>());
+        return list;
+    }
+
+    public static void partition(String ch, List<String> current) {
+        if (ch.isEmpty()) {
+            list.add(new ArrayList<>(current));
+            return;
+        }
+        int left = 0;
+        int right = ch.length();
+        for (int i = 1; i <= ch.length(); i++) {
+            String ss = ch.substring(left, i);
+
+            boolean f = isHw(ss);
+            if (f) {
+                current.add(ss);
+                partition(ch.substring(i, right), current);
+                current.remove(current.size() - 1);
+            }
+        }
+
+    }
+
+
+    public static boolean isHw(String s) {
+        Boolean f = map.get(s);
+        if (f != null) {
+            return f;
+        }
+        int i = 0;
+        int j = s.length() - 1;
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                map.put(s, false);
+                return false;
+            }
+            i++;
+            j--;
+        }
+        map.put(s, true);
+        return true;
+    }
+
+    /*public static List<List<String>> partition(String s) {
         char[] arr = s.toCharArray();
         List<List<String>> list = new ArrayList<>();
         partition(arr, 0, arr.length-1, new ArrayList<>(), list);
@@ -80,5 +132,5 @@ public class Leet131 {
             right--;
         }
         return true;
-    }
+    }*/
 }
