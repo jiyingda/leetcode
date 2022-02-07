@@ -47,7 +47,31 @@ public class Offer55 {
         n3.right = n5;
         Offer55 offer55 = new Offer55();
         int len = offer55.maxDepth(null);
+        System.out.println(isBalanced(n1));
         System.out.println(len);
+    }
+
+    public static boolean isBalanced(TreeNode root) {
+        int len = treeLen(root);
+        return len >= 0;
+    }
+
+    public static int treeLen(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int l = treeLen(root.left);
+        if (l < 0) {
+            return -1;
+        }
+        int r = treeLen(root.right);
+        if (r < 0) {
+            return -1;
+        }
+        if (Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return Math.max(l, r) + 1;
     }
 
 
