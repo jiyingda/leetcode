@@ -6,14 +6,23 @@
  */
 package com.jiyingda.test;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * @author jiyingdabj
  */
 public class Test333 {
 
     public static void main(String[] args) {
+        Deque<Integer> deque = new LinkedList<>();
+        deque.offer(1);
+        deque.offer(2);
+        deque.offer(3);
+        deque.remove(3);
+
         //removeDuplicates(new int[] {0, 0, 1, 2, 2, 2});
-        System.out.println(strStr("hellolliii", "lll"));
+        //System.out.println(strStr("hellolliii", "lll"));
     }
 
     public static int strStr(String haystack, String needle) {
