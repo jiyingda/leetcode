@@ -24,12 +24,57 @@ public class Leet42 {
 
     public static void main(String[] args){
 
-        int[] height = {0,0,0};
+        int[] height = {1,0,2};
         System.out.println(trap(height));;
+        System.out.println(trap2(height));;
 
     }
 
     public static int trap(int[] height) {
+        if(height.length < 3){
+            return 0;
+        }
+        int left = 0;
+        int right = height.length - 1;
+        int all = 0;
+        while (left < right) {
+            // 从最左边和最右边找到小的那个开始处理
+            if (height[left] <= height[right]) {
+                int i = left + 1;
+                // 如果下一个比left的小的话则加上当前的（height[left] - height[i]）雨水量
+                while (height[i] < height[left] && i <= right) {
+                    all += height[left] - height[i];
+                    i++;
+                }
+                // 如果下一个比left的大的话则把当前的位置作为left
+                left = i;
+            } else {
+                int j = right - 1;
+                while (height[j] < height[right] && j >= left) {
+                    all += height[right] - height[j];
+                    j--;
+                }
+                right = j;
+            }
+        }
+        return all;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static int trap2(int[] height) {
         if(height.length < 3){
             return 0;
         }
