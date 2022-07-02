@@ -2,6 +2,11 @@ package com.jiyingda.leetcode50;
 
 import com.jiyingda.entity.ListNode;
 
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+import java.util.TreeSet;
+
 /**
  * @author jiyingda
  * @date 2019/8/12
@@ -26,30 +31,75 @@ public class Leet23 {
 
     public static void main(String[] args){
         ListNode head1 = new ListNode(1);
-        ListNode head2 = new ListNode(1);
-        ListNode head3 = new ListNode(0);
-        ListNode head4 = new ListNode(3);
         ListNode head5 = new ListNode(4);
-        ListNode head6 = new ListNode(4);
-        ListNode head7 = new ListNode(5);
+        ListNode head6 = new ListNode(5);
+
+        head1.next = head5;
+        head5.next = head6;
+
+        ListNode head2 = new ListNode(1);
+        ListNode head3 = new ListNode(3);
+        ListNode head4 = new ListNode(4);
+        head2.next = head3;
+        head3.next = head4;
+
+
+        ListNode head7 = new ListNode(2);
         ListNode head8 = new ListNode(6);
-
-        head5.next = head7;
-        head2.next = head5;
-
-        //head4.next = head6;
-        //head1.next = head4;
-
-        //head3.next = head8;
+        head7.next = head8;
 
 
-        ListNode[] lists = new ListNode[]{head1, head3};
+
+
+
+        ListNode[] lists = new ListNode[]{head1, head2, head7};
         System.out.println(mergeKLists(lists));
 
     }
 
+    static class NodeComparator implements Comparator<ListNode> {
+
+        @Override
+        public int compare(ListNode o1, ListNode o2) {
+            if (o1.val == o2.val) {
+                return -1;
+            }
+            return o1.val - o2.val;
+        }
+    }
 
     public static ListNode mergeKLists(ListNode[] lists) {
+        if(lists == null || lists.length < 1){
+            return null;
+        }
+        if(lists.length == 1){
+            return lists[0];
+        }
+        int size = lists.length;
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(size, new NodeComparator());
+        for (int i = 0; i < size; i++) {
+            if (lists[i] != null) {
+                queue.add(lists[i]);
+            }
+        }
+        ListNode re = new ListNode(0);
+        ListNode idx = re;
+        while (queue.size() > 0) {
+            ListNode first = queue.poll();
+            ListNode temp = first;
+            first = first.next;
+            if (first != null) {
+                queue.add(first);
+            }
+            re.next = temp;
+            re = re.next;
+        }
+        return idx.next;
+
+    }
+
+
+    public static ListNode mergeKLists2(ListNode[] lists) {
         if(lists == null || lists.length < 1){
             return null;
         }

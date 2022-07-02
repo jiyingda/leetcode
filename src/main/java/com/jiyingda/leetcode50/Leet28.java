@@ -1,5 +1,8 @@
 package com.jiyingda.leetcode50;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author jiyingda
  * @date 2019/8/16
@@ -23,13 +26,47 @@ package com.jiyingda.leetcode50;
  */
 public class Leet28 {
     public static void main(String[] args){
-        System.out.println(strStr("hello", "a"));;
+        System.out.println(strStr("hello", "ll"));;
     }
 
 
-
-
     public static int strStr(String haystack, String needle) {
+        return search(haystack, needle);
+    }
+
+    public static int strStr2(String haystack, String needle) {
         return haystack.indexOf(needle);
+    }
+
+    static int[] calculateMaxMatchLengths(String pattern) {
+        int[] maxMatchLengths = new int[pattern.length()];
+        int maxLength = 0;
+        for (int i = 1; i < pattern.length(); i++) {
+            while (maxLength > 0 && pattern.charAt(maxLength) != pattern.charAt(i)) {
+                maxLength = maxMatchLengths[maxLength - 1]; // ①
+            }
+            if (pattern.charAt(maxLength) == pattern.charAt(i)) {
+                maxLength++; // ②
+            }
+            maxMatchLengths[i] = maxLength;
+        }
+        return maxMatchLengths;
+    }
+
+    static int search(String text, String pattern) {
+        int[] maxMatchLengths = calculateMaxMatchLengths(pattern);
+        int count = 0;
+        for (int i = 0; i < text.length(); i++) {
+            while (count > 0 && pattern.charAt(count) != text.charAt(i)) {
+                count = maxMatchLengths[count - 1];
+            }
+            if (pattern.charAt(count) == text.charAt(i)) {
+                count++;
+            }
+            if (count == pattern.length()) {
+                return i - pattern.length() + 1;
+            }
+        }
+        return -1;
     }
 }

@@ -29,11 +29,34 @@ public class Leet22 {
         Leet22 leet22 = new Leet22();
 
         List<String> list = leet22.generateParenthesis(4);
-        List<String> list2 = leet22.generateParenthesis(7);
+        List<String> list2 = leet22.generateParenthesis2(4);
         System.out.println(list);
     }
 
     public List<String> generateParenthesis(int n) {
+        List<String> list = new ArrayList<>();
+        generateParenthesis(n, n, new StringBuilder(), list);
+        return list;
+    }
+
+    public void generateParenthesis(int l1, int l2, StringBuilder sb, List<String> list) {
+        if (l1 == 0 && l2 == 0) {
+            list.add(sb.toString());
+            return;
+        }
+        if (l1 > 0) {
+            sb.append('(');
+            generateParenthesis(l1 - 1, l2, sb ,list);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        if (l2 > l1) {
+            sb.append(')');
+            generateParenthesis(l1, l2 - 1 , sb ,list);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+    }
+
+    public List<String> generateParenthesis2(int n) {
         if(map.containsKey(n)){
             return new ArrayList<>(map.get(n));
         }

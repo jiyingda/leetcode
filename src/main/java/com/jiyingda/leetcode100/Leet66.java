@@ -30,13 +30,29 @@ import java.util.Arrays;
 public class Leet66 {
 
     public static void main(String[] args){
-        int[] a = {9,9,9};
+        int[] a = {8,9,9};
         int[] b = plusOne(a);
         System.out.println(Arrays.toString(b));
     }
 
-
     public static int[] plusOne(int[] digits) {
+        for (int i = digits.length - 1; i >= 0; i--) {
+            if (digits[i] + 1 < 10) {
+                digits[i] = digits[i] + 1;
+                return digits;
+            }
+            digits[i] = digits[i] + 1 - 10;
+        }
+
+        int[] re = new int[digits.length + 1];
+        re[0] = 1;
+        System.arraycopy(digits, 0, re, 1, digits.length + 1 - 1);
+        return re;
+    }
+
+
+
+    public static int[] plusOne2(int[] digits) {
 
 
         for(int i = digits.length-1; i >=0; i--){

@@ -6,6 +6,8 @@
  */
 package com.jiyingda.test;
 
+import java.util.Random;
+
 /**
  * @author jiyingda
  */
@@ -13,6 +15,7 @@ public class QkSort {
 
 
     public static void main(String[] args) {
+
         int[] nums = new int[]{2,4,5,3,1,6,7};
         sort(nums);
         for (int i : nums) {
@@ -30,10 +33,11 @@ public class QkSort {
             return;
         }
 
+        swap(nums, new Random().nextInt(right-left) + left + 1, left);
         int base = nums[left];
         int l = left;
         int r = right;
-        while (l != r) {
+        while (l < r) {
             while (l < r && nums[r] >= base) {
                 r--;
             }
@@ -52,6 +56,11 @@ public class QkSort {
 
         sort(nums, left, l - 1);
         sort(nums, l + 1, right);
+    }
 
+    private static void swap(int[] nums, int a, int b) {
+        int t = nums[a];
+        nums[a] = nums[b];
+        nums[b] = t;
     }
 }

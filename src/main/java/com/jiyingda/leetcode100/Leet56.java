@@ -29,12 +29,36 @@ import java.util.List;
 public class Leet56 {
 
     public static void main(String[] args){
-        int[][] intervals = {{1,4}};
+        int[][] intervals = {{1,3}, {2, 6}, {8, 10}, {15, 18}};
         int[][] rr = merge(intervals);
         System.out.print(Arrays.toString(rr));
     }
 
+
     public static int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
+        List<int[]> reList = new ArrayList<>();
+        int[] current = intervals[0];
+        for(int i = 1; i < intervals.length; i++){
+            int[] interval = intervals[i];
+            if(current[1] >= interval[0]){
+                if(current[1] < interval[1]){
+                    current[1] = interval[1];
+                }
+            } else {
+                reList.add(new int[]{current[0], current[1]});
+                current = interval;
+            }
+        }
+        reList.add(current);
+        int[][] rrr = new int[reList.size()][2];
+        for (int i = 0; i < reList.size(); i++) {
+            rrr[i] = reList.get(i);
+        }
+        return rrr;
+    }
+
+    public static int[][] merge2(int[][] intervals) {
         if(intervals.length <= 1){
             return intervals;
         }

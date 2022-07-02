@@ -27,17 +27,33 @@ package com.jiyingda.leetcode100;
 public class Leet55 {
 
     public static void main(String[] args){
-        int[] nums = new int[]{0,1};
+        int[] nums = new int[]{1, 2, 0, 1};
         System.out.println(canJump(nums));;
 
 
     }
 
 
-
-
-
     public static boolean canJump(int[] nums) {
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        if (dp[0] < 1 && nums.length > 1) {
+            return false;
+        }
+        for (int i = 1; i < nums.length-1; i++) {
+            dp[i] = Math.max(nums[i], dp[i - 1] - 1);
+            if (dp[i] < 1) {
+                return false;
+            }
+            if (dp[i] >= nums.length - 1 - i) {
+                return true;
+            }
+        }
+        return true;
+    }
+
+
+    public static boolean canJump2(int[] nums) {
         if(nums.length == 1){
             return true;
         }

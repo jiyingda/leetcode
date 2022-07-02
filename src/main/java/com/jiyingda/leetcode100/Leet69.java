@@ -18,8 +18,7 @@ public class Leet69 {
             if ((long)mid * mid <= x) {
                 ans = mid;
                 l = mid + 1;
-            }
-            else {
+            } else {
                 r = mid - 1;
             }
         }

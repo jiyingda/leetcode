@@ -39,6 +39,8 @@ public class Leet122 {
 
 
     public static void main(String[] args){
+        int[] nums = new int[]{7,1,5,3,6,4};
+        maxProfit(nums);
 
     }
 
@@ -46,13 +48,15 @@ public class Leet122 {
 
     public static int maxProfit(int[] prices) {
 
-        int maxprofit = 0;
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1]) {
-                maxprofit += prices[i] - prices[i - 1];
-            }
+        int n = prices.length;
+        int dp0 = 0, dp1 = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            int newDp0 = Math.max(dp0, dp1 + prices[i]);
+            int newDp1 = Math.max(dp1, dp0 - prices[i]);
+            dp0 = newDp0;
+            dp1 = newDp1;
         }
-        return maxprofit;
+        return dp0;
 
     }
 }

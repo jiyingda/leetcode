@@ -70,64 +70,45 @@ public class Leet54 {
 
         reList.add(matrix[0][0]);
         while ((nl <= j && j <= nr) && (ml <=i && i <= mr)){
-
-
             if(fx == 0){
                 while (j < nr){
                     reList.add(matrix[i][j]);
                     j++;
                 }
-                if(j == nr) {
-                    reList.add(matrix[i][j]);
-                    fx = 1;
-                    ml++;
-                    i++;
-                } else {
-                    break;
-                }
+                reList.add(matrix[i][j]);
+                fx = 1;
+                ml++;
+                i++;
             }else if(fx == 1){
                 while(i < mr){
                     reList.add(matrix[i][j]);
                     i++;
                 }
-                if(i == mr){
-                    reList.add(matrix[i][j]);
-                    fx = 2;
-                    nr--;
-                    j--;
-                } else {
-                    break;
-                }
+                reList.add(matrix[i][j]);
+                fx = 2;
+                nr--;
+                j--;
             }else if(fx == 2){
                 while (j > nl){
                     reList.add(matrix[i][j]);
                     j--;
                 }
-                if(j == nl) {
-                    reList.add(matrix[i][j]);
-                    fx = 3;
-                    mr--;
-                    i--;
-                } else {
-                    break;
-                }
+                reList.add(matrix[i][j]);
+                fx = 3;
+                mr--;
+                i--;
             }else {
                 //fx == 3
                 while (i > ml){
                     reList.add(matrix[i][j]);
                     i--;
                 }
-                if(i == ml) {
-                    reList.add(matrix[i][j]);
-                    fx = 0;
-                    nl++;
-                    j++;
-                } else {
-                    break;
-                }
+                reList.add(matrix[i][j]);
+                fx = 0;
+                nl++;
+                j++;
             }
         }
-
 
         return reList;
 

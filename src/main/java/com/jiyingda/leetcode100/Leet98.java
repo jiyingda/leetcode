@@ -46,7 +46,41 @@ public class Leet98 {
         System.out.print(isValidBST(t1));;
 
     }
+
+
     public static boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    public static boolean isValidBST(TreeNode root, long left, long right) {
+        if (root == null) {
+            return true;
+        }
+        if (root.left != null) {
+            if (root.val <= root.left.val || root.left.val <= left) {
+                return false;
+            }
+            if (!isValidBST(root.left, left, root.val)) {
+                return false;
+            }
+
+        }
+        if (root.right != null) {
+            if (root.val >= root.right.val || root.right.val >= right) {
+                return false;
+            }
+            if (!isValidBST(root.right, root.val, right)) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+
+
+
+    /*public static boolean isValidBST(TreeNode root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
@@ -69,7 +103,7 @@ public class Leet98 {
             }
         }
         return true;
-    }
+    }*/
 
     public static class TreeNode {
       int val;

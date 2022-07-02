@@ -39,23 +39,51 @@ public class Leet124 {
 
     public static void main(String[] args){
         //[5,4,8,11,null,13,4,7,2,null,null,null,1]
-        TreeNode n1 = new TreeNode(5);
-        TreeNode n2 = new TreeNode(4);
-        TreeNode n3 = new TreeNode(8);
-        TreeNode n4 = new TreeNode(11);
-        TreeNode n5 = new TreeNode(7);
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(7);
+        TreeNode n5 = new TreeNode(10);
+
         n1.left = n2;
         n1.right = n3;
-        n3.left = n4;
-        n4.right = n5;
+        n2.left = n4;
+        n2.right = n5;
 
-        System.out.print(maxPathSum(n1));;
+        System.out.print(maxPathSumF(n1));;
 
     }
 
+    static int mmax = 0;
+
+    public static int maxPathSumF(TreeNode root) {
+        maxPathSumFunction(root);
+        return mmax;
+    }
+
+    public static int maxPathSumFunction(TreeNode root) {
+        if (root == null) {
+            return Integer.MIN_VALUE;
+        }
+        int left = maxPathSumFunction(root.left);
+        int right = maxPathSumFunction(root.right);
+        int a = left + root.val + right;
+        int b = root.val;
+        int c = left;
+        int d = right;
+        int e = left + root.val;
+        int f = right + root.val;
+        mmax = Math.max(Math.max(Math.max(a, b), Math.max(c, d)), Math.max(Math.max(e, f), mmax));
+        return Math.max(root.val, Math.max(left + root.val, right + root.val));
+    }
+
+
+
+
+
     static int max;
 
-    public static int maxPathSum(TreeNode root) {
+    public static int maxPathSum2(TreeNode root) {
         max = root.val;
         int mm = maxSum(root);
         return Math.max(max, mm);

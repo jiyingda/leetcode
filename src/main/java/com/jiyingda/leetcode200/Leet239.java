@@ -69,14 +69,21 @@ public class Leet239 {
 
     }
 
-
     public static int[] maxSlidingWindow(int[] nums, int k) {
+        int len = nums.length;
+        int[] re = new int[len - k + 1];
+        re[0] = nums[0];
+        for (int i = 1; i < k; i++) {
+            re[0] = Math.max(re[0], nums[i]);
+        }
+
+        return null;
+    }
+
+
+    public static int[] maxSlidingWindow2(int[] nums, int k) {
         int n = nums.length;
-        PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
-            public int compare(int[] pair1, int[] pair2) {
-                return pair1[0] != pair2[0] ? pair2[0] - pair1[0] : pair2[1] - pair1[1];
-            }
-        });
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((pair1, pair2) -> pair1[0] != pair2[0] ? pair2[0] - pair1[0] : pair2[1] - pair1[1]);
         for (int i = 0; i < k; ++i) {
             pq.offer(new int[]{nums[i], i});
         }
