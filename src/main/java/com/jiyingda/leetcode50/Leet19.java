@@ -1,6 +1,7 @@
 package com.jiyingda.leetcode50;
 
 import com.jiyingda.entity.ListNode;
+import com.jiyingda.redo.Solution19;
 
 /**
  * @author jiyingda
@@ -34,13 +35,15 @@ public class Leet19 {
         ListNode l3 = new ListNode(3);
         ListNode l4 = new ListNode(4);
         ListNode l5 = new ListNode(5);
-/*        l4.next = l5;
+        l4.next = l5;
         l3.next = l4;
-        l2.next = l3;*/
+        l2.next = l3;
         l1.next = l2;
 
-        ListNode re = removeNthFromEnd(l1, 2);
-        System.out.println(re);
+        //ListNode re = removeNthFromEnd(l1, 2);
+        Solution19 solution19 = new Solution19();
+        ListNode re2 = solution19.removeNthFromEnd(l1, 5);
+        System.out.println(re2);
     }
 
 
