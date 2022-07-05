@@ -51,7 +51,7 @@ public class Leet1200 {
             int a = arr[i + 1] - arr[i];
             if (a < min) {
                 min = a;
-                list.clear();
+                list = new ArrayList<>();
                 list.add(Arrays.asList(arr[i], arr[i + 1]));
             } else if (a == min) {
                 list.add(Arrays.asList(arr[i], arr[i + 1]));
