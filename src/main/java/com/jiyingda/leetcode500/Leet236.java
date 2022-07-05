@@ -6,6 +6,8 @@
  */
 package com.jiyingda.leetcode500;
 
+import com.jiyingda.entity.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
