@@ -2,7 +2,6 @@ package com.jiyingda.leetcode150;
 
 import com.jiyingda.entity.TreeNode;
 
-import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 

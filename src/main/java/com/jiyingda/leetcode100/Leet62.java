@@ -1,12 +1,5 @@
 package com.jiyingda.leetcode100;
 
-import com.jiyingda.entity.ListNode;
-import com.jiyingda.entity.TreeNode;
-
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Stack;
-
 /**
  * @author jiyingda.
  * @date 2020/5/19.
