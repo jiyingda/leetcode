@@ -6,6 +6,8 @@
  */
 package com.jiyingda.megrez;
 
+import java.util.Arrays;
+
 /**
  * 练习第一期
  * 只保留万筒条的麻将牌，现在有手牌13张，判断是否听牌以及听的牌是什么
@@ -39,14 +41,16 @@ public class Solution1 {
         for (int c : cards) {
             pai[c]++;
         }
+        pai[10] = -1;
+        pai[20] = -1;
         for (int other : allCards) {
             if (pai[other] < 4) {
-                pai[other]++;
-                boolean f = check14(pai);
+                int[] temp = Arrays.copyOf(pai, pai.length);
+                temp[other]++;
+                boolean f = check14(temp);
                 if (f) {
                     return true;
                 }
-                pai[other]--;
             }
         }
         return false;
