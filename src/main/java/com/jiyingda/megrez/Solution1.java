@@ -32,7 +32,7 @@ public class Solution1 {
     static int[] allCards = new int[]{1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29};
 
     public static void main(String[] args) {
-        int[] cards = new int[]{3,3,3,4,4,4,5,5,5,12,12,12,13};
+        int[] cards = new int[]{3,3,4,4,4,5,5,5,6,12,13,13,13};
         List<Integer> tp = check13(cards);
         PrintUtils.printArray(tp);
     }
@@ -94,18 +94,21 @@ public class Solution1 {
             pai[i]--;
             pai[i + 1]--;
             pai[i + 2]--;
-            return dfs(pai, i + 1, c3 - 1, c2);
+            boolean f1 = dfs(pai, i + 1, c3 - 1, c2);
+            // 所有进行尝试的地方都应该进行回溯
+            pai[i]++;
+            return f1;
         }
         // pai[i] == 2 可以选择对 也可以选择2条顺
         if (pai[i] == 2) {
             // 先选择对，如果不能胡的话，则进行回溯
             pai[i] = pai[i] - 2;
             boolean f = dfs(pai, i + 1, c3, c2 - 1);
+            // 回溯
+            pai[i] = pai[i] + 2;
             if (f) {
                 return true;
             }
-            // 回溯
-            pai[i] = pai[i] + 2;
             // 选择2条顺 这边也可以先选择一条顺 不过会再进入到 pai[i] = 1 的情况 实质是一样的
             if (i + 2 >= len || pai[i + 1] < 2 || pai[i + 2] < 2) {
                 // 后面的牌不够2个顺
@@ -114,21 +117,25 @@ public class Solution1 {
             pai[i] = pai[i] - 2;
             pai[i + 1] = pai[i + 1] - 2;
             pai[i + 2] = pai[i + 2] - 2;
-            return dfs(pai, i + 1, c3 - 2, c2);
+            boolean f2 = dfs(pai, i + 1, c3 - 2, c2);
+            pai[i] = pai[i] + 2;
+            return f2;
         }
         // pai[i] >= 3 也有2种情况 1,2,3,3,3,3,4,5这种情况会在前面判断pai[i] == 1的时候处理掉了
         // 我们只需考虑 选择刻还是对
         // 这边i不加1 因为pi[i]可能还没用完 让程序接下来判断 pai[i] == 0/1/2 的情况
         pai[i] = pai[i] - 3;
-        boolean f =  dfs(pai, i, c3 - 1, c2);
-        if (f) {
-            return true;
-        }
+        boolean f3 =  dfs(pai, i, c3 - 1, c2);
         // 进行回溯
         pai[i] = pai[i] + 3;
+        if (f3) {
+            return true;
+        }
         // 选择对子 这边不可能再出现3条顺的情况 因为等价于3个刻
         pai[i] = pai[i] - 2;
         // i不用加1
-        return dfs(pai, i, c3, c2 - 1);
+        boolean f2 = dfs(pai, i, c3, c2 - 1);
+        pai[i] = pai[i] + 2;
+        return f2;
     }
 }
