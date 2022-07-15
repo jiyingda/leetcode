@@ -48,9 +48,10 @@ public class Solution1 {
         }
         for (int other : allCards) {
             if (pai[other] >= 0 && pai[other] < 4) {
-                int[] temp = Arrays.copyOf(pai, pai.length);
-                temp[other]++;
-                boolean f = check14(temp);
+                // 这边尝试完回溯就行了，不用copyarray
+                pai[other]++;
+                boolean f = check14(pai);
+                pai[other]--;
                 if (f) {
                     // 保存所有可能听的牌
                     tinPais.add(other);
@@ -97,6 +98,8 @@ public class Solution1 {
             boolean f1 = dfs(pai, i + 1, c3 - 1, c2);
             // 所有进行尝试的地方都应该进行回溯
             pai[i]++;
+            pai[i + 1]++;
+            pai[i + 2]++;
             return f1;
         }
         // pai[i] == 2 可以选择对 也可以选择2条顺
@@ -119,6 +122,8 @@ public class Solution1 {
             pai[i + 2] = pai[i + 2] - 2;
             boolean f2 = dfs(pai, i + 1, c3 - 2, c2);
             pai[i] = pai[i] + 2;
+            pai[i + 1] = pai[i + 1] + 2;
+            pai[i + 2] = pai[i + 2] + 2;
             return f2;
         }
         // pai[i] >= 3 也有2种情况 1,2,3,3,3,3,4,5这种情况会在前面判断pai[i] == 1的时候处理掉了
