@@ -29,9 +29,9 @@ public class BaiduSpeechUtils {
         System.out.println(url);
     }
 
-    private static final String APP_ID = "10542079";
-    private static final String API_KEY = "yXkg2veUpMTskZeB9mqyi6SE";
-    private static final String SECRET_KEY = "GEKgANwyGw50Q11CF6igWYlWECKobPgI";
+    private static final String APP_ID = "";
+    private static final String API_KEY = "";
+    private static final String SECRET_KEY = "";
 
     public static String synthesis(String str, String per) {
         // 初始化一个AipSpeech
