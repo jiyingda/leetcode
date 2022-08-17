@@ -1,8 +1,8 @@
 /**
  * @(#)StudentAppLoginInfo.java, 8月 23, 2021.
  * <p>
- * Copyright 2021 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2021 . All rights reserved.
+ *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package com.jiyingda.test;
 
@@ -86,7 +86,6 @@ public class StudentAppLoginInfo {
 
 
 
-            // https://ke.yuanfudao.biz/tutor-student-app/api/users/current/summary?_hostProductId=374&_debug_ldap_=Gatling&_debug_user_=${userIdCsv}
             Files.write(Paths.get("/Users/jiyingda/vscode/studentAppLoginInfoOut"), reList);
         }
     }

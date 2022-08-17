@@ -1,8 +1,8 @@
 /**
  * @(#)Test5.java, 3月 09, 2021.
  * <p>
- * Copyright 2021 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2021 . All rights reserved.
+ *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package com.jiyingda.test;
 
@@ -63,8 +63,6 @@ public class Test5 {
 
     public static String getName() {
         int idx = (int)(Math.random() * list.length);
-        String s = "java -DFENBI_CONFIG_URI=https://rz-test-fdc.zhenguanyu.com:443 -DrpcServer.registryUri=http://soho-test.na.zhenguanyu.com -DrpcServer.namingServiceUrl=http://soho-test-na.zhenguanyu.com -DrpcServer.serviceName=tutor-atm-lesson -jar tutor-atm-lesson-job.jar --fdc.projectIdentity=tutor-atm-lesson --spring.profiles.active=test,rz-test --rpcServer.zkNode=false --actcuator.enabled=false --jobs.active=EsUserTestJob --dates=2021-07-01,2021-09-01,2022-01-03 --disableSemesterIds=121,122,123 --dryRun=false";
-        String ss = "java -DFENBI_CONFIG_URI=https://dx-online-fdc.zhenguanyu.com:443 -DrpcServer.serviceName=tutor-atm-lesson -DrpcServer.registryUri=http://dx-online.na.zhenguanyu.com -DrpcServer.namingServiceUrl=http://dx-online-na.zhenguanyu.com -jar tutor-atm-lesson-job.jar --fdc.projectIdentity=tutor-atm-lesson --spring.profiles.active=online,dx-online --jobs.active=EsUserTestJob   --rpcServer.zkNode=false --actcuator.enabled=false";
         return list[idx];
     }
 

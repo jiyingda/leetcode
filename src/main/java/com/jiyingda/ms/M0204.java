@@ -1,8 +1,8 @@
 /**
  * @(#)M0204.java, 3月 21, 2022.
  * <p>
- * Copyright 2022 yuanfudao.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * 
+ *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package com.jiyingda.ms;
 
