@@ -7,7 +7,6 @@
 package com.jiyingda.leetcode500;
 
 import com.jiyingda.entity.ListNode;
-import com.jiyingda.test.UserLevel;
 
 import java.util.ArrayList;
 import java.util.List;
