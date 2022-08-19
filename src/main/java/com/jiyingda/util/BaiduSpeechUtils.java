@@ -25,7 +25,7 @@ public class BaiduSpeechUtils {
     //精品： 度逍遥（精品）=5003，度小鹿=5118，度博文=106，度小童=110，度小萌=111，度米朵=103，度小娇=5
 
     public static void main(String[] args) {
-        String url = BaiduSpeechUtils.synthesis("今天玩一手 医生姐姐", "3");
+        String url = BaiduSpeechUtils.synthesis("hello world", "3");
         System.out.println(url);
     }
 
