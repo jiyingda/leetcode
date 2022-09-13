@@ -23,16 +23,6 @@ import java.util.List;
 public class PrintUtils {
 
     public static void main(String[] args) throws IOException {
-        File preTimeFile = new File("/Users/jiyingda/vs/yfda1");
-        if(preTimeFile.isFile() && preTimeFile.exists()) {
-            InputStreamReader isr = new InputStreamReader(new FileInputStream(preTimeFile), StandardCharsets.UTF_8);
-            BufferedReader br = new BufferedReader(isr);
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                String sql = "replace into `sold_device` ( `clientId`, `sold`, `dbctime`, `dbutime`) values ( '" + line + "', '1', '2022-08-01 15:56:43', '2022-08-01 15:56:43');";
-                System.out.println(sql);
-            }
-        }
 
     }
 
