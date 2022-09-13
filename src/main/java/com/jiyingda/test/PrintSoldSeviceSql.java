@@ -1,8 +1,8 @@
 /**
  * @(#)PrintSoldSeviceSql.java, 9月 13, 2022.
  * <p>
- * Copyright 2022 yuanfudao.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2022 y . All rights reserved.
+ *  .COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package com.jiyingda.test;
 
@@ -25,7 +25,7 @@ public class PrintSoldSeviceSql {
             BufferedReader br = new BufferedReader(isr);
             String line = null;
             while ((line = br.readLine()) != null) {
-                String sql = "replace into `sold_device` ( `clientId`, `sold`, `dbctime`, `dbutime`) values ( '" + line + "', '1', '2022-09-01 15:56:43', '2022-09-01 15:56:43');";
+                String sql = "replace into `sold_device` ( `clientId`, `sold`, `dbctime`, `dbutime`) values ( '" + line + "', '1', '2022-09-17 14:24:43', '2022-09-17 14:24:43');";
                 System.out.println(sql);
             }
         }
