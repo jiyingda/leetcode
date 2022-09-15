@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author jiyingdabj
  */
-public class PrintSoldSeviceSql {
+public class PrintSoldSql {
 
     public static void main(String[] args) throws IOException {
         File preTimeFile = new File("/Users/jiyingda/vs/yfda1");
@@ -25,7 +25,7 @@ public class PrintSoldSeviceSql {
             BufferedReader br = new BufferedReader(isr);
             String line = null;
             while ((line = br.readLine()) != null) {
-                String sql = "replace into `sold_device` ( `clientId`, `sold`, `dbctime`, `dbutime`) values ( '" + line + "', '1', '2022-09-17 14:24:43', '2022-09-17 14:24:43');";
+                String sql = "replace into `sold_device` ( `clientId`, `sold`) values ( '" + line + "', '1');";
                 System.out.println(sql);
             }
         }

@@ -31,7 +31,32 @@ package com.jiyingda.leetcode1000;
 public class Leet670 {
     
     public static void main(String[] args) {
-        
+        String sss = "<p>$七分之三=$</p><p>$frac{3}{7}$</p>";
+        System.out.println(frac(sss));
+    }
+
+    private static String FRAC = "frac";
+
+    private static String frac(String content) {
+        String[] arrays = content.split(FRAC);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < arrays.length; i++) {
+            String s = arrays[i];
+            if (s.endsWith("\\")) {
+                if (i < arrays.length - 1) {
+                    sb.append(s).append(FRAC);
+                } else {
+                    sb.append(s);
+                }
+            } else {
+                if (i < arrays.length - 1) {
+                    sb.append(s).append("\\\\").append(FRAC);
+                } else {
+                    sb.append(s);
+                }
+            }
+        }
+        return sb.toString();
     }
 
     public int maximumSwap(int num) {char[] charArray = String.valueOf(num).toCharArray();
