@@ -24,7 +24,7 @@ public class NettyClient {
 
     public static void main(String[] args) throws Exception {
         String host = "127.0.0.1";
-        int port = 8080;
+        int port = 8082;
 
         EventLoopGroup group = new NioEventLoopGroup();
 
@@ -45,7 +45,6 @@ public class NettyClient {
             // 启动客户端.
             ChannelFuture f = b.connect(host, port).sync();
             f.channel().closeFuture().sync();
-
         } finally {
             group.shutdownGracefully();
         }
