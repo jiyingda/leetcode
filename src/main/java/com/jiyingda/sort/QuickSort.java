@@ -1,5 +1,10 @@
 package com.jiyingda.sort;
 
+import sun.jvm.hotspot.utilities.BitMap;
+
+import java.util.BitSet;
+import java.util.Random;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author jiyin
@@ -8,8 +13,22 @@ package com.jiyingda.sort;
 public class QuickSort {
     public static void main(String[] args) {
 
+        BitSet set = new BitSet();
+
+        BitMap bitMap = new BitMap(10);
+        bitMap.atPut(2, true);
+        System.out.println(bitMap.at(1));
 
         int[] arr = new int[]{19,5,4,6,7,3,9,2,1,8, 100};
+        for (int i : arr) {
+            set.set(i);
+        }
+        System.out.println("size = " + set.size());
+        for (int i = 0; i < set.size(); i++) {
+            if (set.get(i)) {
+                System.out.println(i);
+            }
+        }
         //quickSort(arr);
         quickSort2(arr);
         for(int a : arr){

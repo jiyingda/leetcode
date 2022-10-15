@@ -24,14 +24,11 @@ public class Leet206 {
         head1.next = head2;
         ListNode re = reverseList(head1);
         System.out.println(re);
-        ListNode re2 = recursion(head1);
-        System.out.println(re2);
 
     }
 
-    /**
-     * 迭代
-     */
+
+
     public static ListNode reverseList(ListNode head) {
         if(head == null){
             return null;
@@ -44,18 +41,5 @@ public class Leet206 {
             re = tmp;
         }
         return re;
-    }
-
-    /**
-     * 递归
-     */
-    public static ListNode recursion(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode temp = recursion(head.next);
-        head.next.next = head;
-        head.next = null;
-        return temp;
     }
 }

@@ -1,8 +1,8 @@
 /**
  * @(#)Leet1961.java, 7月 04, 2022.
  * <p>
- * 
- *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2022 yuanfudao.com. All rights reserved.
+ * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package com.jiyingda.leetcode2000;
 
