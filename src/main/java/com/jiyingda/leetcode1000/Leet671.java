@@ -3,10 +3,6 @@
  */
 package com.jiyingda.leetcode1000;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-
 import java.util.Collections;
 import java.util.List;
 

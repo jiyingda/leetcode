@@ -1,9 +1,7 @@
 package com.jiyingda.leetcode150;
 
-import com.alibaba.fastjson.JSON;
 import com.jiyingda.tree.TreeNode;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 

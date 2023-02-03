@@ -9,53 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.tensorflow/tensorflow -->
-        <!--<dependency>
-            <groupId>org.tensorflow</groupId>
-            <artifactId>tensorflow</artifactId>
-            <version>1.15.0</version>
-        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common -->
-        <!--<dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-common</artifactId>
-            <version>3.1.0</version>
-        </dependency>-->
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.83</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>3.9.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.mashape.unirest/unirest-java -->
-        <dependency>
-            <groupId>com.mashape.unirest</groupId>
-            <artifactId>unirest-java</artifactId>
-            <version>1.4.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baidu.aip</groupId>
-            <artifactId>java-sdk</artifactId>
-            <version>4.16.9</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy -->
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy</artifactId>
-            <version>3.0.13</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.82.Final</version>
         </dependency>
 
     </dependencies>
