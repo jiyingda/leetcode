@@ -1,8 +1,8 @@
 /**
  * @(#)Leet1124.java, 2月 14, 2023.
  * <p>
- * Copyright 2023 yuanfudao.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2023 . All rights reserved.
+ *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package com.jiyingda.leetcode2000;
 
