@@ -55,7 +55,7 @@ import java.util.List;
 public class Leet1326 {
 
     public static void main(String[] args) {
-        int i = minTaps(5, new int[]{3,4,1,1,0,0});
+        int i = minTaps(7, new int[]{3,0,5,4,5,4,4,3});
         System.out.println(i);
     }
 
@@ -63,31 +63,41 @@ public class Leet1326 {
     public static int minTaps(int n, int[] ranges) {
         List<Pair> list = new ArrayList<>();
         for (int i = 0; i < ranges.length ;i++) {
-            list.add(new Pair(i - ranges[i], i + ranges[i]));
+            list.add(new Pair(Math.max(0, i - ranges[i]), Math.min(n, i + ranges[i])));
         }
         list.sort(Comparator.comparing(e -> e.f));
         int i = 0;
-        int max = 0;
+        Pair maxPair = new Pair(0, 0);
         int t = 0;
         int j = 0;
-        while (i <= n && j <= n) {
+        while (i < n && j < n) {
+            int jt = j;
             for (; j < list.size(); j++) {
                 Pair pair = list.get(j);
                 if (i >= pair.f && i <= pair.s) {
-                    max = Math.max(max, pair.s);
-                } else {
-                    if (max == i) {
-                        return -1;
+                    if (maxPair.s <= pair.s) {
+                        maxPair = pair;
                     }
-                    i = max;
-                    t++;
+                    jt = j;
+                } else{
                     break;
                 }
             }
+            if (maxPair.s == i) {
+                return -1;
+            }
+            i = maxPair.s;
+            j = jt;
+            t++;
         }
-        if (j >= n) {
-          return t+1;
+        if (maxPair.s >= n) {
+            return t;
         }
+
+        return -1;
+    }
+    public static int minTapsDfs(int n, int[] ranges) {
+        // TODO 动态规划写法
         return -1;
     }
 
