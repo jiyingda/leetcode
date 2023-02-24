@@ -7,6 +7,7 @@
 package com.jiyingda.leetcode2000;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -53,14 +54,41 @@ import java.util.List;
  */
 public class Leet1326 {
 
+    public static void main(String[] args) {
+        int i = minTaps(5, new int[]{3,4,1,1,0,0});
+        System.out.println(i);
+    }
 
-    public int minTaps(int n, int[] ranges) {
+
+    public static int minTaps(int n, int[] ranges) {
         List<Pair> list = new ArrayList<>();
         for (int i = 0; i < ranges.length ;i++) {
             list.add(new Pair(i - ranges[i], i + ranges[i]));
         }
-
-        return 1;
+        list.sort(Comparator.comparing(e -> e.f));
+        int i = 0;
+        int max = 0;
+        int t = 0;
+        int j = 0;
+        while (i <= n && j <= n) {
+            for (; j < list.size(); j++) {
+                Pair pair = list.get(j);
+                if (i >= pair.f && i <= pair.s) {
+                    max = Math.max(max, pair.s);
+                } else {
+                    if (max == i) {
+                        return -1;
+                    }
+                    i = max;
+                    t++;
+                    break;
+                }
+            }
+        }
+        if (j >= n) {
+          return t+1;
+        }
+        return -1;
     }
 
     static class Pair {
