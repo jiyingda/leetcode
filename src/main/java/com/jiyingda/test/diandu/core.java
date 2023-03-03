@@ -1,11 +1,13 @@
-package com.jiyingda.test;
+package com.jiyingda.test.diandu;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-import java.io.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * @author jiyingda.
