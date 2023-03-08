@@ -13,13 +13,10 @@ import java.io.InputStreamReader;
  * @author jiyingda.
  * @date 2020/11/26.
  */
-public class core {
+public class ClickReadKeypointMapping {
 
     public static void main(String[] args) throws IOException {
 
-
-        //11
-        //22333555
         File file1 = new File("/Users/jiyingda/vs/diandu");
         if(file1.isFile() && file1.exists()) {
             InputStreamReader isr = new InputStreamReader(new FileInputStream(file1), "utf-8");
@@ -58,11 +55,6 @@ public class core {
                 } else {
 
                 }
-
-
-
-
-
 
             }
 

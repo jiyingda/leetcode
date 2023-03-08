@@ -78,21 +78,21 @@ public class Leet1487 {
         String[] result = new String[names.length];
         Map<String, Integer> map = new HashMap<>();
         for (int i = 0; i < names.length; i++) {
-            if (map.containsKey(names[i])) {
-                int j = map.get(names[i]) + 1;
-                map.put(names[i], j);
-                // TODO
-                String newS = names[i] + "(" + j + ")";
-                map.put(newS, 1);
-                result[i] = newS;
-            } else {
+            if (!map.containsKey(names[i])) {
                 map.put(names[i], 1);
                 result[i] = names[i];
+                continue;
             }
-
+            int j = map.get(names[i]);
+            String newKey = names[i];
+            while (map.containsKey(newKey)) {
+                newKey = names[i]  + "(" + j + ")";
+                j++;
+            }
+            map.put(names[i], j);
+            map.put(newKey, 1);
+            result[i] = newKey;
         }
-
         return result;
     }
-
 }
