@@ -16,7 +16,9 @@ import java.io.InputStreamReader;
 public class LeoChineseKeypointMapping {
 
     public static void main(String[] args) throws IOException {
-        File file1 = new File("/Users/jiyingda/vs/diandu");
+        // sync_exercise_catalog_online
+        //File file1 = new File("/Users/jiyingda/vs/diandu");
+        File file1 = new File("/Users/jiyingda/vs/sync_exercise_catalog_online");
         if(file1.isFile() && file1.exists()) {
             InputStreamReader isr = new InputStreamReader(new FileInputStream(file1), "utf-8");
             BufferedReader br = new BufferedReader(isr);
@@ -28,7 +30,7 @@ public class LeoChineseKeypointMapping {
                 String com = ss[10];
                 JSONArray array = JSONArray.parseArray(com);
                 long lessonId = 0L;
-                long keypointId= 0L;
+                long keypointId = 0L;
 
                 for (int i = 0; i< array.size(); i++) {
                     JSONObject obj = array.getJSONObject(i);
