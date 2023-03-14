@@ -6,9 +6,6 @@
  */
 package com.jiyingda.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author jiyingda
  */

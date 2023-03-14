@@ -1,4 +1,4 @@
-package com.jiyingda.test.diandu;
+package com.jiyingda.test.studymapping;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
