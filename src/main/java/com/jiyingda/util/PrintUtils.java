@@ -21,6 +21,12 @@ public class PrintUtils {
         }
     }
 
+    public static void printArray(String[] array) {
+        for (String b : array) {
+            System.out.print(b + "\t");
+        }
+    }
+
     public static void printArray(List<Integer> array) {
         for (int b : array) {
             System.out.print(b + "\t");
