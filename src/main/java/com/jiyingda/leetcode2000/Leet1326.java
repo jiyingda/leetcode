@@ -1,12 +1,13 @@
 /**
  * @(#)Leet1326.java, 2月 23, 2023.
  * <p>
- * Copyright 2023 yuanfudao.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2023 . All rights reserved.
+ *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package com.jiyingda.leetcode2000;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -53,14 +54,51 @@ import java.util.List;
  */
 public class Leet1326 {
 
+    public static void main(String[] args) {
+        int i = minTaps(7, new int[]{3,0,5,4,5,4,4,3});
+        System.out.println(i);
+    }
 
-    public int minTaps(int n, int[] ranges) {
+
+    public static int minTaps(int n, int[] ranges) {
         List<Pair> list = new ArrayList<>();
         for (int i = 0; i < ranges.length ;i++) {
-            list.add(new Pair(i - ranges[i], i + ranges[i]));
+            list.add(new Pair(Math.max(0, i - ranges[i]), Math.min(n, i + ranges[i])));
+        }
+        list.sort(Comparator.comparing(e -> e.f));
+        int i = 0;
+        Pair maxPair = new Pair(0, 0);
+        int t = 0;
+        int j = 0;
+        while (i < n && j < n) {
+            int jt = j;
+            for (; j < list.size(); j++) {
+                Pair pair = list.get(j);
+                if (i >= pair.f && i <= pair.s) {
+                    if (maxPair.s <= pair.s) {
+                        maxPair = pair;
+                    }
+                    jt = j;
+                } else{
+                    break;
+                }
+            }
+            if (maxPair.s == i) {
+                return -1;
+            }
+            i = maxPair.s;
+            j = jt;
+            t++;
+        }
+        if (maxPair.s >= n) {
+            return t;
         }
 
-        return 1;
+        return -1;
+    }
+    public static int minTapsDfs(int n, int[] ranges) {
+        // TODO 动态规划写法
+        return -1;
     }
 
     static class Pair {
