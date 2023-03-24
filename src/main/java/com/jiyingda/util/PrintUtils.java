@@ -33,12 +33,6 @@ public class PrintUtils {
         }
     }
 
-    public static void printArray(String[] array) {
-        for (String b : array) {
-            System.out.print(b + "\t");
-        }
-    }
-
     public static void printArray(ListNode root) {
         while (root != null) {
             System.out.print(root.val + " -> ");
