@@ -9,7 +9,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author jiyingda.
@@ -21,6 +23,7 @@ public class ClickReadKeypointMapping {
 
         // sync_exercise_catalog_online
         //File file1 = new File("/Users/jiyingda/vs/diandu");
+        Set<Long> set = new HashSet<>();
 
         List<String> list = FileReader.readFromVs("sync_exercise_catalog_online");
         for (String line : list) {
@@ -44,16 +47,20 @@ public class ClickReadKeypointMapping {
                 }
 
             }
-            if (lessonId > 0 && keypointId > 0) {
-                String sql = "INSERT INTO click_read_keypoint_mapping (`name`,unit,unitName,bookVersion,grade,semester,subject,lessonId,keypointId) VALUES ('" +
-                        ss[0] +"'," + ss[1] + ",'" + ss[2] + "'," + ss[3] + "," + ss[4] + "," +ss[5] + ",1," + lessonId + "," + keypointId +
-                        ");";
+            if (!set.contains(keypointId)) {
+                set.add(keypointId);
+                if (lessonId > 0 && keypointId > 0) {
+                    String sql = "INSERT INTO click_read_keypoint_mapping (`name`,unit,unitName,bookVersion,grade,semester,subject,lessonId,keypointId) VALUES ('" +
+                            ss[0] +"'," + ss[1] + ",'" + ss[2] + "'," + ss[3] + "," + ss[4] + "," +ss[5] + ",1," + lessonId + "," + keypointId +
+                            ");";
 
-                System.out.println(sql);
+                    System.out.println(sql);
 
-            } else {
+                } else {
 
+                }
             }
+
         }
 
     }

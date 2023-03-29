@@ -26,9 +26,11 @@ public class EnglishClickReadKeypointMapping {
         List<String> list = FileReader.readFromVs("online英语点读mapping");
         for (String line : list) {
             String[] ss = line.split("\t");
+
+            String name = ss[4];
 //        String sql = "INSERT INTO click_read_keypoint_mapping (`name0`,unit1,unitName2,bookVersion3,grade4,semester5,subject6,lessonId7,keypointId8) VALUES ('" +
             String sql = "INSERT INTO click_read_keypoint_mapping (`name`,unit,unitName,bookVersion,grade,semester,subject,lessonId,keypointId) VALUES ('" +
-                    ss[4] +"'," + ss[3] + ",'','" + ss[8] + "'," + ss[9] + "," + ss[10] + ",3," + ss[6] + "," + ss[0] +
+                    name +"',0,'','" + ss[8] + "'," + ss[9] + "," + ss[10] + ",3," + ss[6] + "," + ss[0] +
                     ");";
 
             System.out.println(sql);
