@@ -16,18 +16,27 @@ public class Leet1863 {
 
     public static void main(String[] args) {
         Leet1863 leet1863 = new Leet1863();
-        int[] nums = new int[]{5,1,6};
-        leet1863.subsetXORSum(nums);
+        int[] nums = new int[]{3,4,5,6,7,8};
+        int a = leet1863.subsetXORSum(nums);
+        System.out.print(a);
     }
 
 
     public int subsetXORSum(int[] nums) {
-        //for (int i = 0; i < nums.length; i++) {
-            subsetXORSum(nums, new ArrayList<>(), 0);
-        //}
+        subsetXORSum(nums, new ArrayList<>(), 0);
+        int all = 0;
+        for (List<Integer> s : list) {
+            if (s.size() < 1) {
+                continue;
+            }
+            int temp = s.get(0);
+            for (int i = 1; i < s.size(); i++) {
+                temp = temp ^ s.get(i);
+            }
+            all += temp;
+        }
 
-        System.out.print(list);
-        return 0;
+        return all;
     }
 
     private List<List<Integer>> list = new ArrayList<>();

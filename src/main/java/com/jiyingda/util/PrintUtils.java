@@ -27,8 +27,8 @@ public class PrintUtils {
         }
     }
 
-    public static void printArray(List<Integer> array) {
-        for (int b : array) {
+    public static <T> void printArray(List<T> array) {
+        for (T b : array) {
             System.out.print(b + "\t");
         }
     }
