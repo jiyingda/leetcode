@@ -1,8 +1,8 @@
 /**
  * @(#)T3.java, 4月 21, 2023.
  * <p>
- * Copyright 2023 yuanfudao.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2023 . All rights reserved.
+ * 
  */
 package com.jiyingda.test;
 

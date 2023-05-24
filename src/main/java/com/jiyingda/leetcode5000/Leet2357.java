@@ -2,7 +2,7 @@
  * @(#)Leet2357.java, 2月 25, 2023.
  * <p>
  * Copyright 2023 fenbi.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * 
  */
 package com.jiyingda.leetcode5000;
 

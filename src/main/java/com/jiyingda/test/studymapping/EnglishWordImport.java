@@ -1,8 +1,8 @@
 /**
  * @(#)EnglishWordImport.java, 4月 28, 2023.
  * <p>
- * Copyright 2023 yuanfudao.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2023 . All rights reserved.
+ * 
  */
 package com.jiyingda.test.studymapping;
 
