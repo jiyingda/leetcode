@@ -25,7 +25,16 @@ public class EnglishWordImport {
         if ("必会词汇".equals(c)) {
             return 3;
         }
-        throw new RuntimeException();
+        if ("能听懂、会说:".equals(c) || "能听懂、会说：".equals(c)) {
+            return 4;
+        }
+        if ("能听懂、会说、会读:".equals(c) || "能听懂、会说、会读：".equals(c)) {
+            return 5;
+        }
+        if ("能听懂、会说、会读、会写:".equals(c) || "能听懂、会说、会读、会写：".equals(c)) {
+            return 6;
+        }
+        throw new RuntimeException(c);
 
 
     }
@@ -34,7 +43,8 @@ public class EnglishWordImport {
         // List<String> list = FileReader.readFromVs("牛津上海版单词数据");
         // List<String> list = FileReader.readFromVs("牛津上海版单词数据222");
         //List<String> list = FileReader.readFromVs("沪教牛津三年级起点单词导入");
-        List<String> list = FileReader.readFromVs("外研社版三起点英语单词导入");
+        //List<String> list = FileReader.readFromVs("外研社版三起点英语单词导入");
+        List<String> list = FileReader.readFromVs("苏教译林一年级起点");
         for (String s : list) {
             String[] ss = s.split("\t");
             int a12 = getWordType(ss[12].trim());
