@@ -2,7 +2,7 @@
  * @(#)Shading.java, 5月 07, 2021.
  * <p>
  * Copyright 2021 . All rights reserved.
- *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *  . Use is subject to license terms.
  */
 package com.jiyingda.test;
 
@@ -13,15 +13,18 @@ import java.util.Arrays;
  */
 public class Shading {
     public static void main(String[] args) throws InterruptedException {
-        long teacherId = 4465677;
-        System.out.println("库：" + ((teacherId & 0xF) >> 3));
-        System.out.println("表：" + ((teacherId & 0xF) >> 1));
-        System.out.println(System.currentTimeMillis());
+        long teacherId = 12345;
+        System.out.println("库：" + (teacherId / 10) % 4);
+        for (int i = 100; i < 1000; i++) {
+            // System.out.println("库：" + ((i / 10) % 4) % 2);
+            // System.out.println("表：" + ((i / 10) % 4));
+        }
 
 
-        Shading shading = new Shading();
+
+        /*Shading shading = new Shading();
         int a = shading.search(new int[]{1, 3, 5, 7, 9}, 7);
-        System.out.println(a);
+        System.out.println(a);*/
     }
 
     private int search(int[] nums, int target) {

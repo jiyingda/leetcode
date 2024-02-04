@@ -2,7 +2,7 @@
  * @(#)Leet872.java, 2月 10, 2023.
  * <p>
  * Copyright 2023 . All rights reserved.
- *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *  . Use is subject to license terms.
  */
 package com.jiyingda.leetcode1000;
 

@@ -1,5 +1,7 @@
 package com.jiyingda.sort;
 
+import com.jiyingda.util.PrintUtils;
+
 /**
  * @author jiyin
  * @date 2020/8/2 8:02
@@ -8,12 +10,10 @@ public class QuickSort {
     public static void main(String[] args) {
 
 
-        int[] arr = new int[]{19,5,4,6,7,3,9,2,1,8, 100};
+        int[] arr = new int[]{6,1,2,3,4,5,7};
         //quickSort(arr);
         quickSort2(arr);
-        for(int a : arr){
-            System.out.print(a);
-        }
+        PrintUtils.printArray(arr);
 
     }
 
@@ -103,19 +103,16 @@ public class QuickSort {
 
         array[left] = array[i];
         array[i] = base;
-        if (i == k) {
+        /*if (i == k) {
             // 第k个大数
 
         } else  if (i < k) {
             sort(array, i + 1, right, k);
         } else {
             sort(array, left, i - 1, k);
-        }
+        }*/
         // 快排
-        //sort(array, left, i - 1, k);
-        //sort(array, i + 1, right, k);
-
-
-
+        sort(array, left, i - 1, k);
+        sort(array, i + 1, right, k);
     }
 }

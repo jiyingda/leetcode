@@ -2,7 +2,7 @@
  * @(#)Leet2225.java, 6月 23, 2022.
  * <p>
  * Copyright 2022 . All rights reserved.
- *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *  . Use is subject to license terms.
  */
 package com.jiyingda.leetcode5000;
 
