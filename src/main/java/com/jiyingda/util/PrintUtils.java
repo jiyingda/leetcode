@@ -2,7 +2,7 @@
  * @(#)PrintUtils.java, 7月 06, 2022.
  * <p>
  * Copyright 2022 . All rights reserved.
- *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *  . Use is subject to license terms.
  */
 package com.jiyingda.util;
 
@@ -21,13 +21,13 @@ public class PrintUtils {
         }
     }
 
-    public static void printArray(String[] array) {
-        for (String b : array) {
+    public static <T> void printArray(List<T> array) {
+        for (T b : array) {
             System.out.print(b + "\t");
         }
     }
 
-    public static <T> void printArray(List<T> array) {
+    public static <T> void printArray(T[] array) {
         for (T b : array) {
             System.out.print(b + "\t");
         }

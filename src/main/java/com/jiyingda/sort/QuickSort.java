@@ -1,10 +1,6 @@
 package com.jiyingda.sort;
 
-import sun.jvm.hotspot.utilities.BitMap;
-
-import java.util.BitSet;
-import java.util.Random;
-import java.util.concurrent.CountDownLatch;
+import com.jiyingda.util.PrintUtils;
 
 /**
  * @author jiyin
@@ -13,27 +9,11 @@ import java.util.concurrent.CountDownLatch;
 public class QuickSort {
     public static void main(String[] args) {
 
-        BitSet set = new BitSet();
 
-        BitMap bitMap = new BitMap(10);
-        bitMap.atPut(2, true);
-        System.out.println(bitMap.at(1));
-
-        int[] arr = new int[]{19,5,4,6,7,3,9,2,1,8, 100};
-        for (int i : arr) {
-            set.set(i);
-        }
-        System.out.println("size = " + set.size());
-        for (int i = 0; i < set.size(); i++) {
-            if (set.get(i)) {
-                System.out.println(i);
-            }
-        }
+        int[] arr = new int[]{6,1,2,3,4,5,7};
         //quickSort(arr);
         quickSort2(arr);
-        for(int a : arr){
-            System.out.print(a);
-        }
+        PrintUtils.printArray(arr);
 
     }
 
@@ -123,19 +103,16 @@ public class QuickSort {
 
         array[left] = array[i];
         array[i] = base;
-        if (i == k) {
+        /*if (i == k) {
             // 第k个大数
 
         } else  if (i < k) {
             sort(array, i + 1, right, k);
         } else {
             sort(array, left, i - 1, k);
-        }
+        }*/
         // 快排
-        //sort(array, left, i - 1, k);
-        //sort(array, i + 1, right, k);
-
-
-
+        sort(array, left, i - 1, k);
+        sort(array, i + 1, right, k);
     }
 }

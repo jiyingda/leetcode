@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author jiyingda.
@@ -23,6 +25,7 @@ public class LeoChineseKeypointMapping {
             InputStreamReader isr = new InputStreamReader(new FileInputStream(file1), "utf-8");
             BufferedReader br = new BufferedReader(isr);
             String lineTxt = null;
+            Set<Long> keypoints = new HashSet<>();
 
             while ((lineTxt = br.readLine()) != null) {
 
@@ -38,7 +41,7 @@ public class LeoChineseKeypointMapping {
                         if (obj.getInteger("type") == 7) {
                             keypointId = obj.getInteger("keypointId");
                         }
-                        if (obj.getInteger("type") == 0) {
+                        if (obj.getInteger("type") == 0 || obj.getInteger("type") == 1) {
                             lessonId = obj.getInteger("keypointId");
                         }
                     } catch (Exception e) {
@@ -47,11 +50,17 @@ public class LeoChineseKeypointMapping {
 
                 }
                 if (lessonId > 0 && keypointId > 0) {
-                    String sql = "INSERT INTO leo_chinese_keypoint_mapping (`name`,bookVersion,grade,semester,leoKeypointId,keypointId) VALUES ('" +
-                            ss[0] +"'," + ss[3] + "," + ss[4] + "," +ss[5] + "," + lessonId + "," + keypointId +
-                            ");";
+                    if (keypoints.contains(keypointId)) {
+                        System.out.println(keypointId);
+                    } else {
+                        keypoints.add(keypointId);
+                        String sql = "INSERT INTO leo_chinese_keypoint_mapping (`name`,bookVersion,grade,semester,leoKeypointId,keypointId) VALUES ('" +
+                                ss[0] +"'," + ss[3] + "," + ss[4] + "," +ss[5] + "," + lessonId + "," + keypointId +
+                                ");";
 
-                    System.out.println(sql);
+                        System.out.println(sql);
+                    }
+
 
                 } else {
 

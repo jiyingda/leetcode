@@ -2,7 +2,7 @@
  * @(#)Leet846.java, 3月 12, 2023.
  * <p>
  * Copyright 2023 chapaof.com. All rights reserved.
- * chapaof.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * chapaof.COM . Use is subject to license terms.
  */
 package com.jiyingda.leetcode1000;
 

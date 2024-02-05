@@ -2,7 +2,7 @@
  * @(#)Offer17.java, 10月 11, 2021.
  * <p>
  * Copyright 2021 . All rights reserved.
- *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *  . Use is subject to license terms.
  */
 package com.jiyingda.offer;
 

@@ -2,7 +2,7 @@
  * @(#)Offer47.java, 3月 08, 2023.
  * <p>
  * Copyright 2023 . All rights reserved.
- *  PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *  . Use is subject to license terms.
  */
 package com.jiyingda.offer;
 
