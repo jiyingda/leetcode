@@ -14,11 +14,7 @@ import java.util.Arrays;
 public class Shading {
     public static void main(String[] args) throws InterruptedException {
         long teacherId = 12345;
-        System.out.println("库：" + (teacherId / 10) % 4);
-        for (int i = 100; i < 1000; i++) {
-            // System.out.println("库：" + ((i / 10) % 4) % 2);
-            // System.out.println("表：" + ((i / 10) % 4));
-        }
+        System.out.println(40413073% 128);
 
 
 

@@ -15,6 +15,10 @@ import java.util.List;
  */
 public class PrintUtils {
 
+    public static void main(String[] args) {
+        System.out.println(1754894037648L - 1754894036497L);
+    }
+
     public static void printArray(int[] array) {
         for (int b : array) {
             System.out.print(b + "\t");

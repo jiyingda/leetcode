@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class FileReader {
 
-    private static final String VS_ROOT_DIR = "/Users/jiyingda/vs/";
+    private static final String VS_ROOT_DIR = "/Users/jiyingdabj/vs/";
 
     public static String readFromVsV2(String filePath) {
         List<String> list = readFromVs2(filePath);
@@ -29,7 +29,12 @@ public class FileReader {
         for (String line : list) {
             sb.append(line).append("\n");
         }
+        byte[] bytes = sb.toString().getBytes(StandardCharsets.UTF_8);
         return sb.toString();
+    }
+
+    public static List<String> readFromVsPts(String filePath) {
+        return read(VS_ROOT_DIR + "pts_online/" + filePath);
     }
 
     public static List<String> readFromVs(String filePath) {

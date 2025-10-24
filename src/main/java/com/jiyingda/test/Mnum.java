@@ -6,9 +6,11 @@
  */
 package com.jiyingda.test;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,9 +19,18 @@ import java.util.Map;
  */
 public class Mnum {
 
+    private static final String SALT = "_|_salt_|_";
+
     public static void main(String[] args) {
+        long current = System.currentTimeMillis();
+        SimpleDateFormat sdfTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        String endTime = sdfTime.format(new Date(current - 3600 * 24 * 30 * 1000L));
+        System.out.println(endTime);
+
         //System.out.println(numOfDifferentGameProcesses(1));
-        System.out.println(numOfFirstWin(10));
+        //String s = Long.toHexString(System.currentTimeMillis());
+        //System.out.println(s);
+        //System.out.println(numOfFirstWin(10));
         // print 45
     }
 
