@@ -14,11 +14,42 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.83</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+        <!-- OkHttp HTTP client -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>4.11.0</version> <!-- 版本号可以根据需要更新 -->
+            <version>4.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yuanfudao.tutor</groupId>
+            <artifactId>tutor-efficient-ai-core</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <!-- log4j API核心包（ReflectionUtil类所在包） -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <!-- log4j 核心实现包 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <!-- slf4j 与 log4j2 的桥接包（关键：解决slf4j调用log4j的适配） -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <!-- slf4j 核心API（如果项目直接使用slf4j接口） -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.7</version>
         </dependency>
 
     </dependencies>
@@ -33,6 +64,11 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
             </plugin>
         </plugins>
     </build>
