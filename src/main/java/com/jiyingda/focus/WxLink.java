@@ -2,7 +2,7 @@
  * @(#)Test123.java, 7月 17, 2023.
  * <p>
  * Copyright 2023 . All rights reserved.
- * FENBI.COM . Use is subject to license terms.
+ *  . Use is subject to license terms.
  */
 package com.jiyingda.focus;
 
