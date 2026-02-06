@@ -21,12 +21,6 @@
             <version>4.11.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.yuanfudao.tutor</groupId>
-            <artifactId>tutor-efficient-ai-core</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-
         <!-- log4j API核心包（ReflectionUtil类所在包） -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -50,6 +44,19 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>2.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <!-- 推荐使用稳定版本，如 0.16 -->
+            <version>0.16</version>
+        </dependency>
+        
+        <!-- 添加AspectJ依赖以避免传递依赖带来的版本冲突 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.7</version>
         </dependency>
 
     </dependencies>

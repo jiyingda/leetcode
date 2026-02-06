@@ -1,8 +1,8 @@
 /**
  * @(#)Leet0412.java, 4月 12, 2025.
  * <p>
- * Copyright 2025 yuanfudao.com. All rights reserved.
- * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright 2025 . All rights reserved.
+ * 
  */
 package com.jiyingda.redo;
 

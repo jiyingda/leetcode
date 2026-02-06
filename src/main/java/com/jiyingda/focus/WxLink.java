@@ -4,31 +4,24 @@
  * Copyright 2023 . All rights reserved.
  * FENBI.COM . Use is subject to license terms.
  */
-package com.jiyingda.test;
+package com.jiyingda.focus;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.jiyingda.util.FileReader;
 import com.jiyingda.util.FileWriter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * @author jiyingdabj
  */
-public class Test123 {
+public class WxLink {
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         // 查询2026-01-18北京天气
     }
 
-    public static void main2(String[] args) {
+    public static void main(String[] args) {
         List<String> array = FileReader.readFromVs("wxlj");
         List<String> out = new ArrayList<>();
         for (String s : array) {
@@ -39,7 +32,7 @@ public class Test123 {
             out.add(ss[1] + "," + ss[2]);
             System.out.println(ss[1] + "," + ss[2]);
         }
-        FileWriter.write("wx0115.csv", out);
+        FileWriter.write("wx0205.csv", out);
 
 
     }
